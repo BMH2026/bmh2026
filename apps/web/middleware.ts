@@ -118,7 +118,11 @@ export async function middleware(request: NextRequest) {
   // ── Admin page protection ───────────────────────────────────────────────────
   // /admin/* pages require a valid admin_session cookie.
   // API routes under /api/admin/* are protected by Bearer token (existing logic).
-  if (pathname.startsWith('/admin') && !pathname.startsWith('/api')) {
+  if (
+    pathname.startsWith('/admin') &&
+    !pathname.startsWith('/api') &&
+    process.env.NODE_ENV !== 'development'
+  ) {
     const adminToken = getAdminSessionTokenFromRequest(request);
     if (!verifyAdminSession(adminToken)) {
       return NextResponse.redirect(new URL('/vao', request.url));

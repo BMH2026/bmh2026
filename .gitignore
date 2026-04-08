@@ -41,3 +41,37 @@ next-env.d.ts
 
 # code-review-graph — generated database, không commit lên GitHub
 .code-review-graph/
+
+# Internal agent workspace (plans, skills, session data)
+.agent/
+
+# Load test results (generated, không cần lưu)
+results/
+docs/k6/
+
+# Material Web source (21MB — dùng npm package thay thế)
+material-web-main/
+
+# Dev/scratch test scripts (không phải unit test chính thức)
+apps/web/test-*.js
+apps/web/tmp-test-*.js
+apps/web/find-model.js
+apps/web/find-stable-model.js
+
+# Planning docs (nội bộ)
+crg_qa_and_optimized_plan_*.md
+fe_tasklist.md
+implementation_plan_final.md
+longxi_faq_qa_design_brief.md
+
+# Ảnh để ở gốc repo (nên để trong apps/web/public/)
+*.webp
+*.jpg
+*.jpeg
+*.png
+
+# Bản FE cũ / draft (đã được thay bởi apps/web)
+binhminhFE/
+
+# Tài liệu Word nội bộ
+*.docx

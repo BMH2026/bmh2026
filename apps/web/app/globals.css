@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-display);
+  --font-chinese: var(--font-noto-sc), var(--font-inter), sans-serif;
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-surface-text: var(--surface-text);
+
+  --radius-card: 24px;
+  --radius-button: 12px;
+  --radius-input: 16px;
+
+  --shadow-glamor: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --shadow-elevated: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+}
+
+@layer base {
+  :root {
+    /* Default - Day (Sea Teal) */
+    --bg-primary: #f0f8f4;
+    --bg-secondary: #e2efea;
+    --text-primary: #1a4a3e;
+    --text-secondary: #2d6a5c;
+    --accent: #f4a261;
+    --surface: rgba(255, 255, 255, 0.85);
+    --surface-text: #1a4a3e;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.45);
+  }
+
+  [data-theme="dawn"] {
+    --bg-primary: #fdfaf5;
+    --bg-secondary: #faece1;
+    --text-primary: #3a2f27;
+    --text-secondary: #6e5a4d;
+    --accent: #e68a6a;
+    --surface: rgba(255, 255, 255, 0.75);
+    --surface-text: #3a2f27;
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.4);
+  }
+
+  [data-theme="day"] {
+    --bg-primary: #f0f8f4;
+    --bg-secondary: #e2efea;
+    --text-primary: #1a4a3e;
+    --text-secondary: #2d6a5c;
+    --accent: #f4a261;
+    --surface: rgba(255, 255, 255, 0.85);
+    --surface-text: #1a4a3e;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.45);
+  }
+
+  [data-theme="dusk"] {
+    --bg-primary: #f5ede5;
+    --bg-secondary: #e8dccf;
+    --text-primary: #4a3a2e;
+    --text-secondary: #7a614d;
+    --accent: #d97706;
+    --surface: rgba(255, 255, 255, 0.65);
+    --surface-text: #4a3a2e;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.35);
+  }
+
+  [data-theme="night"] {
+    --bg-primary: #0f1a1e;
+    --bg-secondary: #1a2c33;
+    --text-primary: #e8e4dc;
+    --text-secondary: #a3a19a;
+    --accent: #facc15;
+    --surface: rgba(26, 42, 48, 0.8);
+    --surface-text: #e8e4dc;
+    --glass-bg: rgba(15, 26, 30, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.15);
+  }
+
+  /* High Contrast Themes specifically for Admin (trang BMH) */
+  [data-theme="admin-dark"] {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --accent: #facc15;
+    --surface: #111111;
+    --surface-text: #ffffff;
+    --glass-bg: rgba(0, 0, 0, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.2);
+  }
+
+  [data-theme="admin-light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --text-primary: #000000;
+    --text-secondary: #4b5563;
+    --accent: #ea580c;
+    --surface: #ffffff;
+    --surface-text: #000000;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(0, 0, 0, 0.15);
+  }
+
+  body {
+    /* Font chính: Playfair Display cho toàn bộ — M3E brand decision */
+    @apply bg-bg-primary text-text-primary transition-colors duration-1000 font-heading antialiased;
+    line-height: 1.7;
+    /* Safe area bottom padding — handled by #main-scroll pb-[100px] in layout.tsx */
+  }
+
+  /* Chinese text support */
+  [lang="zh"] {
+    font-family: var(--font-chinese);
+  }
+
+  /* Typography Enhancements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading leading-tight;
+  }
+
+  p, li, .prose {
+    @apply font-heading leading-relaxed max-w-[72ch];
+  }
+
+  /* Tags / Pills / Chips — dùng Inter (sans) để tạo contrast thị giác với Playfair */
+  .tag, .pill, .chip, [class*="rounded-full"][class*="text-[0.6875rem]"],
+  [class*="rounded-full"][class*="text-xs"] {
+    font-family: var(--font-sans);
+  }
+
+  /* Không được dùng in nghiêng — cấm global */
+  * { font-style: normal !important; }
+}
+
+@layer utilities {
+  .pt-safe-top {
+    padding-top: env(safe-area-inset-top, 16px);
+  }
+  .pb-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+  .glass {
+    @apply bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] shadow-glamor;
+  }
+  .glass-panel {
+    @apply bg-[var(--glass-bg)] backdrop-blur-2xl border border-[var(--glass-border)] shadow-elevated;
+  }
+  .shadow-glass {
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.07);
+  }
+  /* Hide scrollbar but keep scroll functionality */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
