@@ -123,8 +123,13 @@ export async function middleware(request: NextRequest) {
     !pathname.startsWith('/api') &&
     process.env.NODE_ENV !== 'development'
   ) {
-    const adminToken = getAdminSessionTokenFromRequest(request);
-    if (!verifyAdminSession(adminToken)) {
+    try {
+      const adminToken = getAdminSessionTokenFromRequest(request);
+      if (!verifyAdminSession(adminToken)) {
+        return NextResponse.redirect(new URL('/vao', request.url));
+      }
+    } catch (err) {
+      console.error('Admin session verification error:', err);
       return NextResponse.redirect(new URL('/vao', request.url));
     }
   }

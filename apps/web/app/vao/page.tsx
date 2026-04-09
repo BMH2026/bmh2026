@@ -108,7 +108,7 @@ export default function VaoPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ pin }),
       });
-      if (r.ok) { router.push('/admin'); }
+      if (r.ok) { window.location.href = '/admin'; }
       else { setPinStatus('error'); setPin(''); pinRef.current?.focus(); }
     } catch { setPinStatus('error'); }
   }
