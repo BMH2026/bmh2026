@@ -6,7 +6,6 @@
 <title>Admin — Bình Minh Homestay</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
 tailwind.config = {
   darkMode:"class",
@@ -40,16 +39,13 @@ tailwind.config = {
   :root { --font-heading: 'Playfair Display', serif; }
   body { font-family: var(--font-heading); }
   .pill, .tag, .chip { font-family: var(--font-heading); font-weight: 600; }
-  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
-  .ms-fill { font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24; }
-  .glass-nav { background:rgba(255,248,242,.88); backdrop-filter:blur(20px); }
+      .glass-nav { background:rgba(255,248,242,.88); backdrop-filter:blur(20px); }
   /* PIN Pad */
   .pin-dot { width:14px;height:14px;border-radius:50%;background:#e8e1dc;transition:background .15s; }
   .pin-dot.filled { background:#ab3500; }
   /* Tab active indicator */
   .tab-active { color:#ab3500 !important; }
-  .tab-active span.material-symbols-outlined { font-variation-settings:'FILL' 1,'wght' 600,'GRAD' 0,'opsz' 24; }
-  /* Booking status badges */
+  .tab-active span  /* Booking status badges */
   .badge-paid { background:#dcfce7;color:#15803d; }
   .badge-pending { background:#fef3c7;color:#b45309; }
   .badge-deposit { background:#dbeafe;color:#1d4ed8; }
@@ -64,13 +60,14 @@ tailwind.config = {
   .no-scroll::-webkit-scrollbar{display:none;}
   .no-scroll{-ms-overflow-style:none;scrollbar-width:none;}
 </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-background text-on-surface pb-28 min-h-screen">
 
 <!-- ══════════ PIN LOGIN SCREEN ══════════ -->
 <div id="login-screen" class="fixed inset-0 z-[200] bg-background flex flex-col items-center justify-center px-8">
   <div class="mb-10 text-center">
-    <span class="material-symbols-outlined ms-fill text-6xl text-primary mb-4 block">holiday_village</span>
+    <i data-lucide="tent" class="text-6xl text-primary mb-4 block"></i>
     <h1 class="text-2xl font-black text-primary tracking-tight">Bình Minh Homestay</h1>
     <p class="text-xs text-secondary font-semibold mt-1 uppercase tracking-widest">Trang Quản Trị Nội Bộ</p>
   </div>
@@ -98,7 +95,7 @@ tailwind.config = {
       <div></div>
       <button onclick="pinKey('0')" class="aspect-square rounded-xl bg-surface-container-low text-2xl font-bold text-on-surface hover:bg-surface-container active:scale-95 transition-all">0</button>
       <button onclick="pinDel()" class="aspect-square rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container active:scale-95 transition-all flex items-center justify-center">
-        <span class="material-symbols-outlined">backspace</span>
+        <i data-lucide="delete"></i>
       </button>
     </div>
   </div>
@@ -116,10 +113,10 @@ tailwind.config = {
     </div>
     <div class="flex items-center gap-2">
       <button onclick="goTab('settings')" class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
-        <span class="material-symbols-outlined text-secondary text-xl">settings</span>
+        <i data-lucide="settings" class="text-secondary text-xl"></i>
       </button>
       <button onclick="logout()" class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
-        <span class="material-symbols-outlined text-secondary text-xl">logout</span>
+        <i data-lucide="log-out" class="text-secondary text-xl"></i>
       </button>
     </div>
   </header>
@@ -133,14 +130,14 @@ tailwind.config = {
         <h2 class="text-2xl font-black tracking-tight">Bình Minh Homestay</h2>
         <p class="text-white/80 text-sm mt-1">Minh Châu · Vân Đồn · Quảng Ninh</p>
       </div>
-      <span class="material-symbols-outlined ms-fill absolute -right-4 -bottom-4 text-white/10 text-[120px]">holiday_village</span>
+      <i data-lucide="tent" class="absolute -right-4 -bottom-4 text-white/10 text-[120px]"></i>
     </div>
 
     <!-- Stat bento grid -->
     <div class="grid grid-cols-2 gap-3">
       <div class="bg-surface-container-lowest rounded-lg p-4 flex flex-col justify-between h-28 shadow-sm">
         <div class="flex justify-between items-start">
-          <span class="material-symbols-outlined ms-fill text-primary">payments</span>
+          <i data-lucide="banknote" class="text-primary"></i>
           <span class="text-[9px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">Tháng này</span>
         </div>
         <div>
@@ -149,14 +146,14 @@ tailwind.config = {
         </div>
       </div>
       <div class="bg-surface-container-lowest rounded-lg p-4 flex flex-col justify-between h-28 shadow-sm">
-        <span class="material-symbols-outlined ms-fill text-primary">calendar_month</span>
+        <i data-lucide="calendar-days" class="text-primary"></i>
         <div>
           <p class="text-xs text-secondary font-medium">Đặt phòng</p>
           <p id="stat-bookings" class="text-lg font-black text-on-surface">—</p>
         </div>
       </div>
       <div class="bg-surface-container-lowest rounded-lg p-4 flex flex-col justify-between h-28 shadow-sm">
-        <span class="material-symbols-outlined ms-fill text-primary">bed</span>
+        <i data-lucide="bed" class="text-primary"></i>
         <div>
           <p class="text-xs text-secondary font-medium">Lấp đầy hôm nay</p>
           <p id="stat-occupancy" class="text-lg font-black text-on-surface">—</p>
@@ -164,7 +161,7 @@ tailwind.config = {
       </div>
       <div id="stat-alert-card" class="bg-surface-container-lowest rounded-lg p-4 flex flex-col justify-between h-28 shadow-sm border border-primary-container/30">
         <div class="flex justify-between items-start">
-          <span class="material-symbols-outlined ms-fill text-primary-container">priority_high</span>
+          <i data-lucide="alert-circle" class="text-primary-container"></i>
           <span class="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
         </div>
         <div>
@@ -185,7 +182,7 @@ tailwind.config = {
       <div class="flex justify-between items-center">
         <p class="text-sm font-bold text-on-surface">Đặt phòng gần đây</p>
         <button onclick="goTab('bookings')" class="text-xs font-bold text-primary flex items-center gap-0.5">
-          Tất cả <span class="material-symbols-outlined text-xs">arrow_forward</span>
+          Tất cả <i data-lucide="arrow-right" class="text-xs"></i>
         </button>
       </div>
       <div id="recent-bookings" class="space-y-2"></div>
@@ -197,7 +194,7 @@ tailwind.config = {
     <div class="flex justify-between items-center">
       <p class="text-base font-black text-on-surface">Danh sách đặt phòng</p>
       <button onclick="openAddModal()" class="bg-primary text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-transform">
-        <span class="material-symbols-outlined text-sm">add</span> Thêm
+        <i data-lucide="plus" class="text-sm"></i> Thêm
       </button>
     </div>
     <!-- Filter pills -->
@@ -237,9 +234,9 @@ tailwind.config = {
     <div class="bg-surface-container-lowest rounded-lg p-4 space-y-3 shadow-sm">
       <p class="text-xs font-bold text-secondary uppercase tracking-widest">Thông tin homestay</p>
       <div class="space-y-2 text-sm">
-        <div class="flex gap-3 items-start"><span class="material-symbols-outlined text-primary text-lg">location_on</span><span class="text-on-surface">Thôn Nam Hải, Đảo Minh Châu, Vân Đồn, Quảng Ninh</span></div>
-        <div class="flex gap-3 items-center"><span class="material-symbols-outlined text-primary text-lg">phone</span><a href="tel:0965312678" class="text-primary font-bold">0965 312 678 (Mr. Hoàng)</a></div>
-        <div class="flex gap-3 items-center"><span class="material-symbols-outlined text-primary text-lg">account_balance</span><span class="text-on-surface">VietinBank — 0965 312 678 — NGUYEN VIET HOANG</span></div>
+        <div class="flex gap-3 items-start"><i data-lucide="map-pin" class="text-primary text-lg"></i><span class="text-on-surface">Thôn Nam Hải, Đảo Minh Châu, Vân Đồn, Quảng Ninh</span></div>
+        <div class="flex gap-3 items-center"><i data-lucide="phone" class="text-primary text-lg"></i><a href="tel:0965312678" class="text-primary font-bold">0965 312 678 (Mr. Hoàng)</a></div>
+        <div class="flex gap-3 items-center"><i data-lucide="landmark" class="text-primary text-lg"></i><span class="text-on-surface">VietinBank — 0965 312 678 — NGUYEN VIET HOANG</span></div>
       </div>
     </div>
     <!-- Change PIN -->
@@ -268,10 +265,10 @@ tailwind.config = {
     <!-- Link to booking page -->
     <a href="index.html" class="flex items-center justify-between bg-surface-container-low rounded-lg p-4">
       <div class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-primary">open_in_new</span>
+        <i data-lucide="external-link" class="text-primary"></i>
         <span class="text-sm font-bold text-on-surface">Trang đặt phòng khách</span>
       </div>
-      <span class="material-symbols-outlined text-secondary">chevron_right</span>
+      <i data-lucide="chevron-right" class="text-secondary"></i>
     </a>
     <!-- Logout -->
     <button onclick="logout()" class="w-full bg-error/10 text-error rounded-xl py-3 text-sm font-bold active:scale-95 transition-transform">
@@ -284,22 +281,22 @@ tailwind.config = {
               glass-nav rounded-t-2xl shadow-[0_-8px_32px_rgba(171,53,0,0.09)] z-50">
     <button onclick="goTab('dashboard')" id="nav-dashboard"
             class="flex flex-col items-center gap-0.5 p-2 transition-all tab-active">
-      <span class="material-symbols-outlined">dashboard</span>
+      <i data-lucide="layout-dashboard"></i>
       <span class="text-[10px] font-bold">Tổng quan</span>
     </button>
     <button onclick="goTab('bookings')" id="nav-bookings"
             class="flex flex-col items-center gap-0.5 p-2 text-outline transition-all">
-      <span class="material-symbols-outlined">calendar_month</span>
+      <i data-lucide="calendar-days"></i>
       <span class="text-[10px] font-bold">Đặt phòng</span>
     </button>
     <button onclick="goTab('inventory')" id="nav-inventory"
             class="flex flex-col items-center gap-0.5 p-2 text-outline transition-all">
-      <span class="material-symbols-outlined">bed</span>
+      <i data-lucide="bed"></i>
       <span class="text-[10px] font-bold">Phòng</span>
     </button>
     <button onclick="goTab('settings')" id="nav-settings"
             class="flex flex-col items-center gap-0.5 p-2 text-outline transition-all">
-      <span class="material-symbols-outlined">settings</span>
+      <i data-lucide="settings"></i>
       <span class="text-[10px] font-bold">Cài đặt</span>
     </button>
   </nav>
@@ -792,5 +789,6 @@ if(sessionStorage.getItem(AUTH_KEY)==='1'){
   bootApp();
 }
 </script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

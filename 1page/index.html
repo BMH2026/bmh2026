@@ -6,7 +6,6 @@
 <title>Bình Minh Homestay — Đặt Phòng Vân Đồn</title>
 <meta name="description" content="Đặt phòng Bình Minh Homestay Minh Châu, Vân Đồn. Chọn phòng, ăn uống, trải nghiệm — tính tiền trực tiếp. Hỗ trợ bởi Long Xì AI 24/7."/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
   tailwind.config = {
@@ -46,8 +45,7 @@
     background-image:radial-gradient(circle at 10px -5px,transparent 12px,white 13px);
     background-size:20px 20px;
   }
-  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
-  .no-scrollbar::-webkit-scrollbar { display:none; }
+    .no-scrollbar::-webkit-scrollbar { display:none; }
   .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
 
   /* Toast */
@@ -67,6 +65,7 @@
   #chat-panel { transition:opacity .2s,transform .3s cubic-bezier(.4,0,.2,1); }
   #chat-panel.hidden { opacity:0; transform:translateY(32px); pointer-events:none; }
 </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-white pb-28 md:pb-0">
 
@@ -76,7 +75,7 @@
 <!-- ══════════════ NAV ══════════════ -->
 <nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-6 md:px-12 py-4">
   <div class="flex items-center gap-2 text-xl md:text-2xl font-bold tracking-tighter text-primary">
-    <span class="material-symbols-outlined">holiday_village</span>
+    <i data-lucide="tent"></i>
     <span>Bình Minh Homestay</span>
   </div>
   <div class="hidden md:flex items-center gap-8">
@@ -90,7 +89,7 @@
     <button id="settings-btn" onclick="openSettings()" title="Cấu hình Long Xì API"
             class="opacity-0 hover:opacity-100 focus:opacity-100 transition-opacity p-2 rounded-full
                    hover:bg-surface-container-high text-secondary">
-      <span class="material-symbols-outlined text-base">settings</span>
+      <i data-lucide="settings" class="text-base"></i>
     </button>
   </div>
 </nav>
@@ -106,11 +105,11 @@
         <p class="text-3xl md:text-4xl font-extrabold tracking-tight">29°C — Nắng nhẹ</p>
         <p class="text-xs md:text-sm mt-1 opacity-95">Sóng êm, biển đẹp • Minh Châu, Vân Đồn</p>
         <div class="flex gap-4 mt-2 text-xs opacity-80">
-          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">humidity_percentage</span>Độ ẩm ~72%</span>
-          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">air</span>Gió 12 km/h</span>
+          <span class="flex items-center gap-1"><i data-lucide="droplets" class="text-sm"></i>Độ ẩm ~72%</span>
+          <span class="flex items-center gap-1"><i data-lucide="wind" class="text-sm"></i>Gió 12 km/h</span>
         </div>
       </div>
-      <span class="material-symbols-outlined text-6xl md:text-7xl opacity-80" style="font-variation-settings:'FILL' 1">sunny</span>
+      <i data-lucide="sun" class="text-6xl md:text-7xl opacity-80"></i>
       <div class="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
     </div>
   </section>
@@ -125,11 +124,11 @@
       <section>
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-xl md:text-2xl font-bold text-tertiary flex items-center gap-2">
-            <span class="material-symbols-outlined">bed</span> Tiền Phòng
+            <i data-lucide="bed"></i> Tiền Phòng
           </h3>
           <button onclick="openCal('in')"
                   class="px-4 py-2 bg-surface-container-high rounded-full text-xs font-bold text-primary flex items-center gap-1">
-            <span class="material-symbols-outlined text-sm" id="dates-chip-icon">calendar_today</span>
+            <i data-lucide="calendar" class="text-sm" id="dates-chip-icon"></i>
             <span id="dates-chip-label">Chọn ngày</span>
           </button>
         </div>
@@ -147,11 +146,11 @@
             <div class="p-5">
               <div class="flex justify-between items-start mb-2">
                 <h4 class="font-bold text-base">Phi Thuyền 1 Giường</h4>
-                <span class="material-symbols-outlined text-secondary cursor-pointer text-lg" onclick="openSvcModal('pt1g')">info</span>
+                <i data-lucide="info" class="text-secondary cursor-pointer text-lg" onclick="openSvcModal('pt1g')"></i>
               </div>
               <div class="flex gap-4 text-xs text-secondary mb-4">
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span>Tối đa 3 người</span>
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">king_bed</span>1 Giường Đôi</span>
+                <span class="flex items-center gap-1"><i data-lucide="users" class="text-sm"></i>Tối đa 3 người</span>
+                <span class="flex items-center gap-1"><i data-lucide="bed-double" class="text-sm"></i>1 Giường Đôi</span>
               </div>
               <div class="flex justify-between items-center">
                 <div>
@@ -160,7 +159,7 @@
                 </div>
                 <button onclick="openSvcModal('pt1g')" data-room-id="pt1g"
                         class="w-10 h-10 rounded-full bg-surface-container-high text-primary flex items-center justify-center hover:scale-110 transition-transform hover:bg-primary hover:text-white" id="btn-pt1g">
-                  <span class="material-symbols-outlined">add</span>
+                  <i data-lucide="plus"></i>
                 </button>
               </div>
             </div>
@@ -177,11 +176,11 @@
             <div class="p-5">
               <div class="flex justify-between items-start mb-2">
                 <h4 class="font-bold text-base">Phi Thuyền 2 Giường</h4>
-                <span class="material-symbols-outlined text-secondary cursor-pointer text-lg" onclick="openSvcModal('pt2g')">info</span>
+                <i data-lucide="info" class="text-secondary cursor-pointer text-lg" onclick="openSvcModal('pt2g')"></i>
               </div>
               <div class="flex gap-4 text-xs text-secondary mb-4">
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span>Tối đa 4 người</span>
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">bed</span>2 Giường Đơn</span>
+                <span class="flex items-center gap-1"><i data-lucide="users" class="text-sm"></i>Tối đa 4 người</span>
+                <span class="flex items-center gap-1"><i data-lucide="bed" class="text-sm"></i>2 Giường Đơn</span>
               </div>
               <div class="flex justify-between items-center">
                 <div>
@@ -190,7 +189,7 @@
                 </div>
                 <button onclick="openSvcModal('pt2g')" data-room-id="pt2g"
                         class="w-10 h-10 rounded-full bg-surface-container-high text-primary flex items-center justify-center hover:scale-110 transition-transform hover:bg-primary hover:text-white" id="btn-pt2g">
-                  <span class="material-symbols-outlined">add</span>
+                  <i data-lucide="plus"></i>
                 </button>
               </div>
             </div>
@@ -207,11 +206,11 @@
             <div class="p-5">
               <div class="flex justify-between items-start mb-2">
                 <h4 class="font-bold text-base">Nhà Gỗ 1 Giường</h4>
-                <span class="material-symbols-outlined text-secondary cursor-pointer text-lg" onclick="openSvcModal('ng1g')">info</span>
+                <i data-lucide="info" class="text-secondary cursor-pointer text-lg" onclick="openSvcModal('ng1g')"></i>
               </div>
               <div class="flex gap-4 text-xs text-secondary mb-4">
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span>Tối đa 3 người</span>
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">king_bed</span>1 Giường Đôi</span>
+                <span class="flex items-center gap-1"><i data-lucide="users" class="text-sm"></i>Tối đa 3 người</span>
+                <span class="flex items-center gap-1"><i data-lucide="bed-double" class="text-sm"></i>1 Giường Đôi</span>
               </div>
               <div class="flex justify-between items-center">
                 <div>
@@ -220,7 +219,7 @@
                 </div>
                 <button onclick="openSvcModal('ng1g')" data-room-id="ng1g"
                         class="w-10 h-10 rounded-full bg-surface-container-high text-primary flex items-center justify-center hover:scale-110 transition-transform hover:bg-primary hover:text-white" id="btn-ng1g">
-                  <span class="material-symbols-outlined">add</span>
+                  <i data-lucide="plus"></i>
                 </button>
               </div>
             </div>
@@ -237,11 +236,11 @@
             <div class="p-5">
               <div class="flex justify-between items-start mb-2">
                 <h4 class="font-bold text-base">Nhà Gỗ 2 Giường</h4>
-                <span class="material-symbols-outlined text-secondary cursor-pointer text-lg" onclick="openSvcModal('ng2g')">info</span>
+                <i data-lucide="info" class="text-secondary cursor-pointer text-lg" onclick="openSvcModal('ng2g')"></i>
               </div>
               <div class="flex gap-4 text-xs text-secondary mb-4">
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span>Tối đa 4 người</span>
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">bed</span>2 Giường Đơn</span>
+                <span class="flex items-center gap-1"><i data-lucide="users" class="text-sm"></i>Tối đa 4 người</span>
+                <span class="flex items-center gap-1"><i data-lucide="bed" class="text-sm"></i>2 Giường Đơn</span>
               </div>
               <div class="flex justify-between items-center">
                 <div>
@@ -250,7 +249,7 @@
                 </div>
                 <button onclick="openSvcModal('ng2g')" data-room-id="ng2g"
                         class="w-10 h-10 rounded-full bg-surface-container-high text-primary flex items-center justify-center hover:scale-110 transition-transform hover:bg-primary hover:text-white" id="btn-ng2g">
-                  <span class="material-symbols-outlined">add</span>
+                  <i data-lucide="plus"></i>
                 </button>
               </div>
             </div>
@@ -265,7 +264,7 @@
                  alt="Phi Thuyền 1 Giường"/>
             <div class="flex-1"><h4 class="font-bold text-sm">Phi Thuyền 1 Giường</h4><p class="text-xs text-secondary mb-2">View biển, 1 giường đôi</p>
               <div class="flex justify-between items-end"><span class="text-primary font-extrabold">1.200.000đ<span class="text-[10px] text-secondary font-normal">/đêm</span></span>
-              <span id="m-badge-pt1g" class="material-symbols-outlined text-outline-variant text-xl" style="font-variation-settings:'FILL' 1">radio_button_unchecked</span></div></div>
+              <i data-lucide="circle" id="m-badge-pt1g" class="text-outline-variant text-xl"></i></div></div>
           </div>
           <div class="bg-surface-container-lowest p-4 rounded-lg flex gap-4 cursor-pointer active:scale-[.98] transition-transform" onclick="openSvcModal('pt2g')">
             <img class="w-20 h-20 rounded-lg object-cover flex-shrink-0"
@@ -273,7 +272,7 @@
                  alt="Phi Thuyền 2 Giường"/>
             <div class="flex-1"><h4 class="font-bold text-sm">Phi Thuyền 2 Giường</h4><p class="text-xs text-secondary mb-2">View biển, 2 giường đơn</p>
               <div class="flex justify-between items-end"><span class="text-primary font-extrabold">1.300.000đ<span class="text-[10px] text-secondary font-normal">/đêm</span></span>
-              <span id="m-badge-pt2g" class="material-symbols-outlined text-outline-variant text-xl" style="font-variation-settings:'FILL' 1">radio_button_unchecked</span></div></div>
+              <i data-lucide="circle" id="m-badge-pt2g" class="text-outline-variant text-xl"></i></div></div>
           </div>
           <div class="bg-surface-container-lowest p-4 rounded-lg flex gap-4 cursor-pointer active:scale-[.98] transition-transform" onclick="openSvcModal('ng1g')">
             <img class="w-20 h-20 rounded-lg object-cover flex-shrink-0"
@@ -281,7 +280,7 @@
                  alt="Nhà Gỗ 1 Giường"/>
             <div class="flex-1"><h4 class="font-bold text-sm">Nhà Gỗ 1 Giường</h4><p class="text-xs text-secondary mb-2">Mộc mạc, 1 giường đôi</p>
               <div class="flex justify-between items-end"><span class="text-primary font-extrabold">1.000.000đ<span class="text-[10px] text-secondary font-normal">/đêm</span></span>
-              <span id="m-badge-ng1g" class="material-symbols-outlined text-outline-variant text-xl" style="font-variation-settings:'FILL' 1">radio_button_unchecked</span></div></div>
+              <i data-lucide="circle" id="m-badge-ng1g" class="text-outline-variant text-xl"></i></div></div>
           </div>
           <div class="bg-surface-container-lowest p-4 rounded-lg flex gap-4 cursor-pointer active:scale-[.98] transition-transform" onclick="openSvcModal('ng2g')">
             <img class="w-20 h-20 rounded-lg object-cover flex-shrink-0"
@@ -289,7 +288,7 @@
                  alt="Nhà Gỗ 2 Giường"/>
             <div class="flex-1"><h4 class="font-bold text-sm">Nhà Gỗ 2 Giường</h4><p class="text-xs text-secondary mb-2">Mộc mạc, 2 giường đơn</p>
               <div class="flex justify-between items-end"><span class="text-primary font-extrabold">1.200.000đ<span class="text-[10px] text-secondary font-normal">/đêm</span></span>
-              <span id="m-badge-ng2g" class="material-symbols-outlined text-outline-variant text-xl" style="font-variation-settings:'FILL' 1">radio_button_unchecked</span></div></div>
+              <i data-lucide="circle" id="m-badge-ng2g" class="text-outline-variant text-xl"></i></div></div>
           </div>
         </div>
       </section>
@@ -297,7 +296,7 @@
       <!-- ──── Tiền Ăn ──── -->
       <section>
         <h3 class="text-xl md:text-2xl font-bold text-tertiary flex items-center gap-2 mb-6">
-          <span class="material-symbols-outlined">restaurant</span> Tiền Ăn
+          <i data-lucide="utensils"></i> Tiền Ăn
         </h3>
         <div class="flex gap-3 overflow-x-auto pb-3 no-scrollbar">
           <button onclick="openSvcModal('sang')" data-svc-id="sang"
@@ -322,31 +321,31 @@
       <!-- ──── Tiền Chơi ──── -->
       <section>
         <h3 class="text-xl md:text-2xl font-bold text-tertiary flex items-center gap-2 mb-6">
-          <span class="material-symbols-outlined">sailing</span> Tiền Chơi
+          <i data-lucide="sailboat"></i> Tiền Chơi
         </h3>
         <!-- Icon grid -->
         <div class="grid grid-cols-4 gap-3 md:gap-4 mb-8">
           <div onclick="openSvcModal('tau')" data-act-id="tau" id="tile-tau"
                class="p-4 md:p-6 bg-surface-container-low rounded-lg text-center cursor-pointer hover:bg-primary-container hover:text-white transition-all">
-            <span class="material-symbols-outlined text-2xl md:text-3xl mb-1 md:mb-2">directions_boat</span>
+            <i data-lucide="ship" class="text-2xl md:text-3xl mb-1 md:mb-2"></i>
             <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider">Vé Tàu</p>
             <p class="text-[9px] md:text-[10px] mt-1 opacity-80">220k/vé</p>
           </div>
           <div onclick="openSvcModal('xedien')" data-act-id="xedien" id="tile-xedien"
                class="p-4 md:p-6 bg-surface-container-low rounded-lg text-center cursor-pointer hover:bg-primary-container hover:text-white transition-all">
-            <span class="material-symbols-outlined text-2xl md:text-3xl mb-1 md:mb-2">electric_car</span>
+            <i data-lucide="car-front" class="text-2xl md:text-3xl mb-1 md:mb-2"></i>
             <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider">Xe Điện</p>
             <p class="text-[9px] md:text-[10px] mt-1 opacity-80">100k/chuyến</p>
           </div>
           <div onclick="openSvcModal('anh')" data-act-id="anh" id="tile-anh"
                class="p-4 md:p-6 bg-surface-container-low rounded-lg text-center cursor-pointer hover:bg-primary-container hover:text-white transition-all">
-            <span class="material-symbols-outlined text-2xl md:text-3xl mb-1 md:mb-2">photo_camera</span>
+            <i data-lucide="camera" class="text-2xl md:text-3xl mb-1 md:mb-2"></i>
             <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider">Chụp Ảnh</p>
             <p class="text-[9px] md:text-[10px] mt-1 opacity-80">500k/buổi</p>
           </div>
           <div onclick="openSvcModal('tiec')" data-act-id="tiec" id="tile-tiec"
                class="p-4 md:p-6 bg-surface-container-low rounded-lg text-center cursor-pointer hover:bg-primary-container hover:text-white transition-all">
-            <span class="material-symbols-outlined text-2xl md:text-3xl mb-1 md:mb-2">celebration</span>
+            <i data-lucide="party-popper" class="text-2xl md:text-3xl mb-1 md:mb-2"></i>
             <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider">Tiệc</p>
             <p class="text-[9px] md:text-[10px] mt-1 opacity-80">800k/tiệc</p>
           </div>
@@ -410,7 +409,7 @@
                        oninput="onFormInputMobile()" onblur="onNameBlur()"
                        class="w-full px-4 py-3 bg-surface-container-low rounded-lg border border-outline-variant text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"/>
                 <p id="m-name-warning" class="hidden text-xs text-amber-600 mt-1.5 flex items-center gap-1">
-                  <span class="material-symbols-outlined" style="font-size:14px">warning_amber</span>
+                  <i data-lucide="triangle-alert" style="font-size:14px"></i>
                   Bạn có muốn kiểm tra lại tên? Homestay sẽ dùng tên này để liên hệ.
                 </p>
               </div>
@@ -472,7 +471,7 @@
                      oninput="onFormInput()" onblur="onNameBlur()"
                      class="w-full px-4 py-3 bg-surface-container-low rounded-lg border border-outline-variant text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"/>
               <p id="name-warning" class="hidden text-xs text-amber-600 mt-1.5 flex items-center gap-1">
-                <span class="material-symbols-outlined" style="font-size:14px">warning_amber</span>
+                <i data-lucide="triangle-alert" style="font-size:14px"></i>
                 Bạn có muốn kiểm tra lại tên? Homestay sẽ dùng tên này để liên hệ.
               </p>
             </div>
@@ -573,7 +572,7 @@
       </div>
     </div>
     <button onclick="closeChat()" class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-      <span class="material-symbols-outlined">close</span>
+      <i data-lucide="x"></i>
     </button>
   </header>
   <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-5 scroll-smooth"></div>
@@ -583,7 +582,7 @@
              class="flex-1 bg-transparent border-none text-sm focus:ring-0 placeholder:text-outline/50"
              onkeydown="if(event.key==='Enter')sendChat()"/>
       <button onclick="sendChat()" class="text-primary hover:scale-110 transition-transform">
-        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">send</span>
+        <i data-lucide="send"></i>
       </button>
     </div>
   </footer>
@@ -607,7 +606,7 @@
             class="absolute top-4 right-4 z-[110] w-10 h-10 rounded-full
                    bg-black/20 backdrop-blur-md flex items-center justify-center text-white
                    hover:bg-black/40 transition-colors">
-      <span class="material-symbols-outlined">close</span>
+      <i data-lucide="x"></i>
     </button>
     <!-- Left: Hero Image -->
     <div class="w-full lg:w-[55%] h-56 lg:h-auto relative overflow-hidden flex-shrink-0">
@@ -621,7 +620,7 @@
         <h1 id="modal-name" class="text-2xl lg:text-4xl font-extrabold tracking-tighter mb-5 leading-tight">—</h1>
         <!-- Capacity -->
         <div id="modal-capacity-block" class="hidden flex gap-3 mb-6 p-4 bg-surface-container-low rounded-lg">
-          <span class="material-symbols-outlined text-primary">groups</span>
+          <i data-lucide="users" class="text-primary"></i>
           <div>
             <p id="modal-capacity" class="text-sm text-tertiary font-semibold">—</p>
             <p id="modal-capacity-note" class="text-xs text-on-surface-variant/70 italic mt-1">—</p>
@@ -647,7 +646,7 @@
         <!-- Warning thu hộ -->
         <div id="modal-warning"
              class="hidden mb-6 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800 flex gap-2">
-          <span class="material-symbols-outlined text-amber-600 flex-shrink-0">warning</span>
+          <i data-lucide="triangle-alert" class="text-amber-600 flex-shrink-0"></i>
           <span id="modal-warning-text">—</span>
         </div>
         <!-- Stepper -->
@@ -659,12 +658,12 @@
           <div class="flex items-center bg-surface-container-high rounded-full p-1 shadow-inner">
             <button onclick="modalStepper(-1)"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors">
-              <span class="material-symbols-outlined">remove</span>
+              <i data-lucide="minus"></i>
             </button>
             <span id="modal-qty" class="w-12 text-center font-bold text-lg">1</span>
             <button onclick="modalStepper(1)"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-on-primary bg-primary-container hover:opacity-90 transition-opacity">
-              <span class="material-symbols-outlined">add</span>
+              <i data-lucide="plus"></i>
             </button>
           </div>
         </div>
@@ -677,12 +676,12 @@
           <div class="flex items-center bg-surface-container-high rounded-full p-1 shadow-inner">
             <button onclick="modalStepperMeals(-1)"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors">
-              <span class="material-symbols-outlined">remove</span>
+              <i data-lucide="minus"></i>
             </button>
             <span id="modal-qty-meals" class="w-12 text-center font-bold text-lg">1</span>
             <button onclick="modalStepperMeals(1)"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-on-primary bg-primary-container hover:opacity-90 transition-opacity">
-              <span class="material-symbols-outlined">add</span>
+              <i data-lucide="plus"></i>
             </button>
           </div>
         </div>
@@ -699,7 +698,7 @@
                          py-4 lg:py-5 rounded-xl font-bold text-base lg:text-lg shadow-lg
                          hover:opacity-90 active:scale-95 transition-all
                          flex items-center justify-center gap-3">
-            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">receipt_long</span>
+            <i data-lucide="receipt-text"></i>
             Thêm vào hoá đơn
           </button>
         </div>
@@ -723,7 +722,7 @@
       </div>
       <button onclick="closeCheckoutModal()"
               class="p-2 text-secondary hover:text-primary transition-colors rounded-full hover:bg-surface-container">
-        <span class="material-symbols-outlined">close</span>
+        <i data-lucide="x"></i>
       </button>
     </div>
 
@@ -765,7 +764,7 @@
 
       <!-- Section B-pre: Inventory expectation-management -->
       <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 flex gap-2 text-sm text-amber-800">
-        <span class="material-symbols-outlined text-amber-600 flex-shrink-0 mt-0.5" style="font-size:18px">info</span>
+        <i data-lucide="info" class="text-amber-600 flex-shrink-0 mt-0.5" style="font-size:18px"></i>
         <p>⏳ Phòng chưa được giữ cho đến khi homestay nhận cọc. Chúng tôi ưu tiên theo thứ tự chuyển khoản.</p>
       </div>
 
@@ -793,7 +792,7 @@
         <!-- Primary: Copy — starts timer -->
         <button onclick="copyTransferNote()"
                 class="w-full flex items-center justify-center gap-2 bg-primary text-white rounded-xl py-3.5 font-bold text-sm hover:opacity-90 active:scale-95 transition-all">
-          <span class="material-symbols-outlined text-xl">content_copy</span>
+          <i data-lucide="copy" class="text-xl"></i>
           Sao chép thông tin chuyển khoản
         </button>
         <!-- Secondary row: Zalo + Call -->
@@ -805,7 +804,7 @@
           </button>
           <a href="tel:0965312678"
              class="flex items-center justify-center gap-2 bg-surface-container border border-outline-variant rounded-xl py-3 font-bold text-sm text-on-surface hover:bg-surface-container-high active:scale-95 transition-all">
-            <span class="material-symbols-outlined text-xl">call</span>
+            <i data-lucide="phone" class="text-xl"></i>
             Gọi ngay
           </a>
         </div>
@@ -855,7 +854,7 @@
       <button id="co-claim-btn"
               onclick="claimPaid()"
               class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-4 rounded-xl font-extrabold text-base shadow-lg shadow-primary/20 hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-3">
-        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">payments</span>
+        <i data-lucide="banknote"></i>
         Tôi Đã Chuyển Tiền
       </button>
       <p class="text-[10px] text-center text-secondary mt-2">Bấm sau khi đã chuyển khoản thành công</p>
@@ -876,7 +875,7 @@
         <p class="text-xs text-secondary mt-0.5">Kết nối Gemini API cho chatbot thật</p>
       </div>
       <button onclick="closeSettings()" class="p-2 text-secondary hover:text-primary transition-colors">
-        <span class="material-symbols-outlined">close</span>
+        <i data-lucide="x"></i>
       </button>
     </div>
     <div class="px-8 pb-8 space-y-5">
@@ -919,11 +918,11 @@
     <p id="cal-inst" class="text-xs font-bold uppercase tracking-widest text-secondary mb-4">Chọn ngày</p>
     <div class="flex items-center justify-between mb-4">
       <button onclick="calNav(-1)" class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
-        <span class="material-symbols-outlined">chevron_left</span>
+        <i data-lucide="chevron-left"></i>
       </button>
       <span id="cal-ttl" class="font-bold text-base"></span>
       <button onclick="calNav(1)" class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
-        <span class="material-symbols-outlined">chevron_right</span>
+        <i data-lucide="chevron-right"></i>
       </button>
     </div>
     <div id="cal-grid" class="grid grid-cols-7 gap-1 text-center text-sm"></div>
@@ -1079,8 +1078,8 @@ function refreshReceipt(){
     const btn=$('btn-'+id);
     if(btn){
       btn.innerHTML=inCart
-        ?'<span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1">check</span>'
-        :'<span class="material-symbols-outlined">add</span>';
+        ?'<i data-lucide="check"></i>'
+        :'<i data-lucide="plus"></i>';
       btn.classList.toggle('bg-primary',inCart);
       btn.classList.toggle('text-white',inCart);
       btn.classList.toggle('bg-surface-container-high',!inCart);
@@ -1165,8 +1164,8 @@ function openSvcModal(id){
 
   // CTA text
   $('modal-cta-btn').innerHTML=cart[id]
-    ?`<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">edit</span> Cập nhật hoá đơn`
-    :`<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">receipt_long</span> Thêm vào hoá đơn`;
+    ?`<i data-lucide="pencil"></i> Cập nhật hoá đơn`
+    :`<i data-lucide="receipt-text"></i> Thêm vào hoá đơn`;
 
   _updateModalPreview();
   $('svc-modal-backdrop').classList.remove('hidden');
@@ -1527,7 +1526,7 @@ function _botSuggest(svcId){
         <p class="text-xs text-on-surface-variant mb-4">${s.desc}</p>
         <button onclick="addFromChat('${svcId}',this)"
                 class="w-full flex items-center justify-center gap-2 bg-surface-container-highest text-primary font-bold py-2.5 rounded-full text-xs hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer">
-          <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+          <i data-lucide="shopping-cart" class="text-[18px]"></i>
           Thêm vào Hoá Đơn
         </button>
       </div>
@@ -1576,7 +1575,7 @@ function validateForm(){
   if(cta){
     cta.disabled=!valid;
     cta.innerHTML=valid&&hasCart
-      ?`<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;font-size:20px">lock</span> Giữ phòng ngay · Cọc ${vnd(_lastDep)}`
+      ?`<i data-lucide="lock"></i> Giữ phòng ngay · Cọc ${vnd(_lastDep)}`
       :'Nhập tên &amp; SĐT để đặt phòng';
   }
   if(mCta){
@@ -1648,7 +1647,7 @@ function openCheckoutModal(){
   tg('co-claimed',false); tg('co-cta-footer',true);
   tg('co-payment-section',true); tg('co-actions',true);
   const cb=$('co-claim-btn');
-  if(cb){cb.disabled=false;cb.innerHTML='<span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1">payments</span> Tôi Đã Chuyển Tiền';}
+  if(cb){cb.disabled=false;cb.innerHTML='<i data-lucide="banknote"></i> Tôi Đã Chuyển Tiền';}
 
   // Persist minimal state
   _saveCheckoutState('SHOW_PAYMENT',{name,phone,transferNote});
@@ -1816,7 +1815,7 @@ function _tryRestoreCheckout(){
     tg('co-claimed',false); tg('co-cta-footer',true);
     tg('co-payment-section',true); tg('co-actions',true);
     const cb=$('co-claim-btn');
-    if(cb){cb.disabled=false;cb.innerHTML='<span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1">payments</span> Tôi Đã Chuyển Tiền';}
+    if(cb){cb.disabled=false;cb.innerHTML='<i data-lucide="banknote"></i> Tôi Đã Chuyển Tiền';}
 
     $('checkout-modal').classList.remove('hidden');
     document.body.classList.add('overflow-hidden');
@@ -1833,12 +1832,13 @@ function _tryRestoreCheckout(){
   if(priceRow&&!priceRow.previousElementSibling?.classList.contains('inv-hint')){
     priceRow.insertAdjacentHTML('beforebegin',
       '<p class="inv-hint text-[10px] text-amber-600 font-semibold mb-2 flex items-center gap-1">'+
-      '<span class="material-symbols-outlined" style="font-size:13px">schedule</span>'+
+      '<i data-lucide="clock" style="font-size:13px"></i>'+
       'Số lượng có hạn · Đặt sớm để giữ phòng</p>');
   }
 });
 refreshReceipt();
 _tryRestoreCheckout();
 </script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
