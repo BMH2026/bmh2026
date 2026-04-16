@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#e1804f",
+                        "surface-tint": "#ab3500",
+                        "secondary-fixed-dim": "#ffb956",
+                        "surface-container-low": "#f9f2ec",
+                        "surface": "#fff8f2",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb59d",
+                        "surface-variant": "#e8e1dc",
+                        "surface-container": "#f3ede7",
+                        "on-primary-fixed": "#390c00",
+                        "secondary-container": "#ffb13d",
+                        "surface-bright": "#fff8f2",
+                        "secondary": "#835400",
+                        "secondary-fixed": "#ffddb5",
+                        "surface-container-highest": "#e8e1dc",
+                        "on-tertiary-fixed-variant": "#793003",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1e1b18",
+                        "tertiary": "#98471b",
+                        "surface-dim": "#dfd9d3",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-tertiary-fixed": "#351000",
+                        "on-tertiary-container": "#582000",
+                        "on-background": "#1e1b18",
+                        "error-container": "#ffdad6",
+                        "outline": "#8d7168",
+                        "inverse-on-surface": "#f6f0ea",
+                        "primary": "#ab3500",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#594139",
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-container": "#ff6b35",
+                        "background": "#fff8f2",
+                        "inverse-surface": "#33302c",
+                        "outline-variant": "#e1bfb5",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#eee7e1",
+                        "on-primary-container": "#5f1900",
+                        "on-secondary-fixed": "#2a1800",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-container": "#6e4600",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FFF8F2; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .paper-grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; }
+    </style>
+<style>
+        body { min-height: max(884px, 100dvh); }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased pb-32">
+<div class="fixed inset-0 paper-grain z-50"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#FFF8F2]/80 dark:bg-[#1E1B18]/80 backdrop-blur-md px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#AB3500] dark:text-[#FF6B35]" data-icon="holiday_village">holiday_village</span>
+<h1 class="text-xl font-extrabold text-[#AB3500] dark:text-[#FF6B35] tracking-tight font-['Plus_Jakarta_Sans']">Bình Minh Homestay</h1>
+</div>
+<div class="text-[#AB3500] font-bold text-sm">VN | EN</div>
+</header>
+<main class="pt-20 px-4 space-y-8 max-w-[390px] mx-auto">
+<!-- Weather Widget -->
+<section class="bg-gradient-to-br from-[#FF6B35] via-[#F4A833] to-[#FFEAA0] rounded-lg p-5 text-white flex justify-between items-center shadow-lg">
+<div class="space-y-1">
+<p class="text-sm font-medium opacity-90">Vân Đồn, Quảng Ninh</p>
+<h2 class="text-3xl font-extrabold tracking-tighter">29°C</h2>
+<p class="text-xs font-semibold">Nắng nhẹ — sóng êm, biển đẹp</p>
+<div class="flex gap-2 mt-1 opacity-80 text-[10px] font-bold uppercase">
+<span>💧 72%</span>
+<span>🌬️ 12 km/h</span>
+</div>
+</div>
+<div class="text-right space-y-1">
+<span class="material-symbols-outlined text-5xl" data-icon="sunny" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sunny</span>
+<p class="text-[10px] uppercase tracking-widest font-bold">Rất phù hợp tắm biển</p>
+</div>
+</section>
+<!-- Tiền Phòng -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-tertiary font-bold text-lg">Tiền Phòng</h3>
+<span class="text-secondary text-xs font-semibold">Step 1 of 3</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 space-y-4">
+<div class="flex gap-2">
+<div class="flex-1 bg-surface-container-lowest rounded p-3 flex flex-col gap-1">
+<label class="text-[10px] uppercase font-bold text-secondary">Check-in</label>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span>24 Oct 2024</span>
+</div>
+</div>
+<div class="flex-1 bg-surface-container-lowest rounded p-3 flex flex-col gap-1 border-2 border-primary-container/20">
+<label class="text-[10px] uppercase font-bold text-secondary">Check-out</label>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="event">event</span>
+<span>26 Oct 2024</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between px-2">
+<p class="text-sm font-bold text-on-surface">Available Rooms</p>
+<p class="text-xs text-secondary font-medium">2 nights</p>
+</div>
+<div class="space-y-3">
+<!-- Phi Thuyền 2 Giường (Selected in example) -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex gap-4 ring-2 ring-primary-container">
+<div class="w-20 h-20 rounded bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVkoyjopmfmRLXE1wzVxroRitQH_Hu2FMGxLE3NdW-f9ezsSrY57-D3p8zzrab_PMwAipBXd4Rj0hDJ0EC_L3jFtFP5P9QnrjjSKdV9PWx2dRtMQHme90T9ueYWCDrfIR6pjuQUwAyYl_W8URU4y7rdajM6yVFGb6OiO9vvctDGwU1FsSW7O69lQe3GPfCSi6mQr1Pa4HeyBVSlz907Uxi-UVaQh9HK_QMHXVOOHW1IRE8TdQ0uWSuaRZtwXTFc2RFqmRAxndVU70')"></div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Phi Thuyền 2 Giường</h4>
+<p class="text-xs text-secondary mb-2">View biển, 2 giường đơn</p>
+<div class="flex justify-between items-end">
+<span class="text-primary font-extrabold">1.300.000đ<span class="text-[10px] text-secondary font-normal">/đêm</span></span>
+<span class="material-symbols-outlined text-primary-container" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Phi Thuyền 1 Giường -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex gap-4 opacity-70">
+<div class="w-20 h-20 rounded bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAuekFUSk1ClEaiqBhDsj9iT-t_x_yBEdQUWATx3psAOi8pI3F9davHAbzrVz-epFb6Q6dZnCVDJFTJshQRtoOHHsCDQkCGY50lRY14UeQiwpwWNy9w85-KqCi9LqoAWfjRK_-uYlgdD8n3_mrufd4GAAyKUaXAcuk76ci_7y2EVnzCynVUUvQ_OUKP7hiRkKikeAXFM9tfo9CBi0fZ_mzI7X1oHsLEYSjY5c1YWin_sMvELAKe8c11adGhk4NFJNV_Q3LcBmgQOz0')"></div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Phi Thuyền 1 Giường</h4>
+<p class="text-xs text-secondary mb-2">View biển, 1 giường đôi</p>
+<div class="flex justify-between items-end">
+<span class="text-on-surface font-extrabold">1.200.000đ<span class="text-[10px] text-secondary font-normal">/đêm</span></span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tiền Ăn -->
+<section class="space-y-4">
+<h3 class="text-tertiary font-bold text-lg px-2">Tiền Ăn</h3>
+<div class="flex overflow-x-auto no-scrollbar gap-4 px-2">
+<!-- Bữa Sáng -->
+<div class="min-w-[160px] bg-surface-container-lowest rounded-lg p-3 space-y-2">
+<div class="h-24 w-full rounded bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBglXy72Fa9aiojt8WOcYm86QmuTIyrxdVRZsFKCtsjARx-kKtCJ1NKy6rYJG_eZS8Rbq_qJzlCPM3NLQ0Qy7BDOqyjT3Pe1qXWQnLIBUpzm09kGqX3v9CopvCptXIGEvQVyvtIgIdq20KREkWheTdzaQSGLle_A6NRNH3zq3mlw5-eBz8O6-RqQv37aCFyjDIqJ49aYAOwBnrXtKRXkcwVAnNQ4MXS5hwMHx1VYfDvSjlr_GvTrw0PkkPkpG2dhObC-naDwNCaj50')"></div>
+<p class="font-bold text-xs">Bữa Sáng</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold text-[11px]">80.000đ</span>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs" data-icon="remove">remove</span>
+<span class="text-[11px] font-bold">0</span>
+<span class="material-symbols-outlined text-xs" data-icon="add">add</span>
+</div>
+</div>
+</div>
+<!-- Bữa Tối -->
+<div class="min-w-[160px] bg-surface-container-lowest rounded-lg p-3 space-y-2">
+<div class="h-24 w-full rounded bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtSUBYxhMNUIu8hBthnHgxKfxjOTSMcl86MF0wqocqsj_eyvSkLcUBJI9lZ-TKioPrKVluFTKGuiOMoj9qekL_vK9IztddMe3x3k_exXdRcSeM6_5LZ5PRNVkCTdJW7Wok31va7pY0whtbuPTnN7mrhvJSmUedjzZU-Hj8UZWsHRkmuflZ2zf6gMBQhWU0DZnGX11hGTIliKdrBKkVYsww6RHDBGlC9idHRDhHBzVAWlf6X5DKHUjClk1UVdLUbUfWVBoLyfiRms0')"></div>
+<p class="font-bold text-xs">Bữa Tối Hải Sản</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold text-[11px]">200.000đ</span>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full ring-2 ring-primary">
+<span class="material-symbols-outlined text-xs" data-icon="remove">remove</span>
+<span class="text-[11px] font-bold">4</span>
+<span class="material-symbols-outlined text-xs" data-icon="add">add</span>
+</div>
+</div>
+</div>
+<!-- Minibar -->
+<div class="min-w-[160px] bg-surface-container-lowest rounded-lg p-3 space-y-2 opacity-60">
+<div class="h-24 w-full rounded bg-gray-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-gray-400" data-icon="liquor">liquor</span>
+</div>
+<p class="font-bold text-xs">Minibar</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold text-[11px]">50.000đ</span>
+<div class="flex items-center gap-1 bg-primary text-white px-2 py-1 rounded-full">
+<span class="text-[11px] font-bold">Thêm</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tiền Chơi -->
+<section class="space-y-4">
+<h3 class="text-tertiary font-bold text-lg px-2">Tiền Chơi</h3>
+<div class="px-2 flex flex-wrap gap-2">
+<div class="bg-primary text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="directions_boat">directions_boat</span>
+                    Vé Tàu Cao Tốc
+                </div>
+<div class="bg-surface-container-high text-secondary px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="electric_rickshaw">electric_rickshaw</span>
+                    Xe Điện
+                </div>
+<div class="bg-surface-container-high text-secondary px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="camera_alt">camera_alt</span>
+                    Chụp Ảnh
+                </div>
+</div>
+<div class="px-2">
+<div class="relative rounded-lg overflow-hidden h-48 flex flex-col justify-end p-4">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJCSYYXnBtLVvL1RL4DTZJ_cUJhc6BLZT5fm0gQyhw8aMVNq1jcVoKRnyaKKGhXHNWL1ISxOJo7yghV4MZXWs3RVWMvQ7f-1klEq6adFYGu9T2xz9gp9uUV3Y-frHyIfOlNrIc1PlQYhPYA-MledaWLSMZpLd2KKf5tS5ogi_OF5fw9knEOqmHC9lPP-C4E1nkNhXIVcEIgMheHs71i8KIH6Z_2M1JVGrVFPj7ii28cgLOppDLlqRuYBZM2nnZMLJEJF9m-TYNhGg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="relative z-10 flex justify-between items-end">
+<div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider">Khuyên Dùng</span>
+<h4 class="text-white font-bold text-lg">Vé Tàu Cao Tốc Cái Rồng</h4>
+</div>
+<button class="bg-white/20 backdrop-blur-md text-white p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Tính Tiền (The Interactive Receipt) -->
+<section class="space-y-4 pt-4">
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm relative">
+<!-- Receipt Header -->
+<div class="bg-tertiary-container/10 p-5 border-b border-dashed border-tertiary/20">
+<h3 class="text-tertiary font-extrabold text-xl tracking-tight">Chi Tiết Tạm Tính</h3>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-widest mt-1">Booking ID: BM-2605-VAD</p>
+</div>
+<!-- Itemized Breakdown -->
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Phi Thuyền 2 Giường (2 đêm)</span>
+<span class="font-bold">2.600.000đ</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Ăn tối (4 người)</span>
+<span class="font-bold">800.000đ</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Vé tàu (8 lượt) - Thu hộ 100%</span>
+<span class="font-bold">1.760.000đ</span>
+</div>
+<div class="pt-4 border-t border-surface-container-high space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-secondary font-bold text-base">Tổng Cộng</span>
+<span class="text-primary font-extrabold text-xl">5.160.000đ</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant text-xs italic">Đặt cọc (30% phòng + 100% tàu)</span>
+<span class="text-secondary font-bold text-sm">2.540.000đ</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="text-on-surface-variant text-xs">Còn thanh toán tại Homestay</span>
+<span class="text-on-surface font-bold text-sm">2.620.000đ</span>
+</div>
+</div>
+</div>
+<!-- Bank Transfer Card -->
+<div class="mx-6 mb-6 p-4 bg-surface-container rounded-lg flex items-center gap-4">
+<div class="w-16 h-16 bg-white p-1 rounded-sm shadow-inner">
+<img alt="QR Code" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABHx30xv4imJTasLg6UaWRbnKbd8Sk0jIRNo1L2oSw7P-OtW0A6mwwbPBwYUy4B-KI2fwATxwFaApBwCbH0xpMzwnaCvHPqr7zc8l0baiRhj-7BFNmThhW4OW2vc3MGFalg4mxkG8HOi7po0dZzGnl3XeD3leTF_hhMO7JaY7_AfioEMF72BMO7zQl27kMpXqYcVg70Eu515ILQH-0VR-6YFcA0gQ35xkHXy_fK9kxGxkyoO0jB_VYTgpiQbcHG6PmKGR-4rgNU5k"/>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-[10px] font-bold text-secondary uppercase">VietinBank</p>
+<p class="text-xs font-extrabold tracking-wider">0965 312 678</p>
+<p class="text-[9px] text-on-surface-variant uppercase">NGUYEN VIET HOANG</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="content_copy">content_copy</span>
+</div>
+<!-- Receipt Tear Detail -->
+<div class="absolute -bottom-1 left-0 right-0 h-2 flex gap-1 px-1 overflow-hidden">
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+<div class="w-4 h-4 bg-background rounded-full -mt-2 shrink-0"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Long Xì AI Chat FAB -->
+<button class="fixed bottom-28 right-6 w-14 h-14 bg-white shadow-xl rounded-full flex items-center justify-center z-40 ring-4 ring-primary-container/10">
+<span class="material-symbols-outlined text-primary-container text-3xl" data-icon="smart_toy" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<!-- Bottom Sticky Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#FFFFFF]/80 dark:bg-[#1E1B18]/80 backdrop-blur-xl rounded-t-[2rem] shadow-[0_-12px_32px_rgba(171,53,0,0.1)] px-6 py-4 pb-8 flex items-center justify-between">
+<div class="space-y-0.5">
+<p class="text-[10px] text-secondary font-bold uppercase tracking-tighter">Đặt cọc ngay</p>
+<h4 class="text-lg font-extrabold text-primary leading-none">2.540.000đ</h4>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-10 py-4 rounded-full font-extrabold text-sm shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+            Cọc Ngay
+        </button>
+</nav>
+</body></html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bình Minh Homestay - Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fff8f2",
+                        "primary-fixed-dim": "#ffb59d",
+                        "inverse-surface": "#33302c",
+                        "inverse-on-surface": "#f6f0ea",
+                        "inverse-primary": "#ffb59d",
+                        "on-tertiary-fixed": "#351000",
+                        "on-tertiary-container": "#582000",
+                        "surface-variant": "#e8e1dc",
+                        "secondary-container": "#ffb13d",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffddb5",
+                        "surface": "#fff8f2",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "surface-dim": "#dfd9d3",
+                        "on-secondary-container": "#6e4600",
+                        "surface-container": "#f3ede7",
+                        "primary-container": "#ff6b35",
+                        "on-tertiary-fixed-variant": "#793003",
+                        "on-background": "#1e1b18",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1e1b18",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary": "#835400",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "outline-variant": "#e1bfb5",
+                        "on-primary-container": "#5f1900",
+                        "on-secondary-fixed": "#2a1800",
+                        "surface-container-low": "#f9f2ec",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#eee7e1",
+                        "on-primary-fixed-variant": "#832600",
+                        "surface-container-highest": "#e8e1dc",
+                        "secondary-fixed-dim": "#ffb956",
+                        "on-surface-variant": "#594139",
+                        "primary": "#ab3500",
+                        "on-primary": "#ffffff",
+                        "outline": "#8d7168",
+                        "tertiary": "#98471b",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#390c00",
+                        "tertiary-container": "#e1804f",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-bright": "#fff8f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .noise-bg { position: fixed; inset: 0; pointer-events: none; opacity: 0.02; z-index: 999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<div class="noise-bg"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full shadow-[0_12px_32px_rgba(171,53,0,0.05)]">
+<div class="flex items-center gap-3">
+<img alt="Property Manager Profile" class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a mature Vietnamese man with a friendly expression, soft natural indoor lighting, professional but approachable" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzBqmnLcy6OrERo9_C3E1b2FReZVgcEWgzQpM6CxglqafiTW1xqyiUm9-xoyEEU2MgpfDtFtF3Atf6oelllVfIjDaH1xAN3WAbKWnU0C0yxpFJFwUj7Tbs4RXOj6av4ugU0CroK5oimylG0vIzblimqcyCekV4A8EjWd__Zf60PSNnzmXpR15T-CyitnJBGw5tIiq7MqukFJTNr_YrhW4xxWk-aAYXrhZ9wGc2ljuNqaxeUe2b9B9PMGu1yzTyECWbIwroJe-eqtE"/>
+<div>
+<span class="block text-xl font-bold text-orange-900 dark:text-orange-100 italic tracking-tight font-plus-jakarta-sans">The Ethereal Atoll</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-white/40 dark:hover:bg-stone-800/40 transition-colors rounded-full text-orange-800">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 hover:bg-white/40 dark:hover:bg-stone-800/40 transition-colors rounded-full text-orange-800">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 space-y-8">
+<!-- Welcome Section -->
+<section class="space-y-4">
+<div class="space-y-1">
+<h2 class="text-tertiary text-sm font-semibold tracking-wide uppercase">TRANG QUẢN TRỊ</h2>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight">Chào buổi sáng, Chú Hoàng</h1>
+</div>
+<div class="bg-surface-container-low rounded-lg p-6 space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<span class="text-secondary text-xs font-bold uppercase tracking-widest">Tỉ lệ lấp đầy</span>
+<div class="text-3xl font-bold text-primary">84%</div>
+</div>
+<div class="text-right">
+<span class="text-on-surface-variant text-sm">Còn 4 phòng trống</span>
+</div>
+</div>
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 84%"></div>
+</div>
+</div>
+</section>
+<!-- Stat Cards: Bento Grid Style -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+</div>
+<div>
+<div class="text-on-surface-variant text-xs font-medium">Doanh thu</div>
+<div class="text-lg font-bold text-on-surface">42.5M VND</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<div>
+<div class="text-on-surface-variant text-xs font-medium">Đặt phòng</div>
+<div class="text-lg font-bold text-on-surface">18 active</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col justify-between h-32">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bed</span>
+</div>
+<div>
+<div class="text-on-surface-variant text-xs font-medium">Lấp đầy</div>
+<div class="text-lg font-bold text-on-surface">84%</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col justify-between h-32 border-2 border-primary-container/20">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+<span class="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
+</div>
+<div>
+<div class="text-on-surface-variant text-xs font-medium">Yêu cầu</div>
+<div class="text-lg font-bold text-on-surface">7 mới</div>
+</div>
+</div>
+</section>
+<!-- Recent Bookings -->
+<section class="space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-bold tracking-tight text-on-surface">Đặt phòng gần đây</h3>
+<button class="text-primary text-sm font-semibold">Xem tất cả</button>
+</div>
+<div class="space-y-4">
+<!-- Booking Item 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0">
+<img alt="Guest Nguyễn Linh" class="w-full h-full object-cover" data-alt="Close-up portrait of a stylish man with a warm friendly smile, blurred tropical resort background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDQfYZ9Ba10LEtixvsqpdLLFPYqoObkIHHfWCsej3gvOw_x6RWuvtQGGe8QQo34fWnFBtcqAxGi-gCzomxZukp_7aP777Rbh5nuXoofOmOt0MQQl4Tsrlz-Y1Z-0Hdh3LreAAuYRtwLAWgP0ph-H_nVuDhbGQT4aGaeRF26CnVTCBaYpiusQGxErLUkMb8CRRSu5kvQAe5LJpjSm2VaSxbSKpdnrBdCzLt6_mcmjACtXc9QpUYRrMoZEmo6LuQBZR-Ab6Xv2BV_a0"/>
+</div>
+<div class="flex-1">
+<div class="font-bold text-on-surface">Nguyễn Linh</div>
+<div class="text-xs text-secondary font-medium uppercase tracking-wider">Phi Thuyền • 12 - 14 thg 5</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full">ĐÃ THANH TOÁN</span>
+</div>
+</div>
+<!-- Booking Item 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0">
+<img alt="Guest John Mayer" class="w-full h-full object-cover" data-alt="Young woman with a joyful expression, wearing resort-style summer clothing, golden hour natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVz_Ldlu9ctQrHmoRT_0DXcNCdBA67ApaRVlqLudKUHjZCfKAbglFyzYwWUC5sR2OpPx43szS1aLaoqDUuv-1Y-MDb5R9lRN00-y2X5RX8Bp1K7r-bXVQtGEq-kHPpqRroyAeicUkDgm-jhpWfvXYcKGN8lIq5IssybnwaC6VlgnYfYrso1U-iNkzAS15GZ0H82c9AS9_RaSFU57tz1pUZ6217KYYBlkQQXz6DOJ9Ju2kQJx088m1yajqbSwztBTEo2pqNYj1TLz8"/>
+</div>
+<div class="flex-1">
+<div class="font-bold text-on-surface">Trần Thảo</div>
+<div class="text-xs text-secondary font-medium uppercase tracking-wider">Nhà Gỗ • 15 - 18 thg 5</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-[10px] font-bold rounded-full">CHỜ XỬ LÝ</span>
+</div>
+</div>
+<!-- Booking Item 3 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0 bg-secondary-container/20 flex items-center justify-center">
+<span class="text-secondary-container font-bold">AL</span>
+</div>
+<div class="flex-1">
+<div class="font-bold text-on-surface">An Lê</div>
+<div class="text-xs text-secondary font-medium uppercase tracking-wider">Nhà Gỗ • 19 - 21 thg 5</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full">ĐÃ THANH TOÁN</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Action Hero CTA -->
+<section class="pb-8">
+<div class="bg-gradient-to-br from-primary to-primary-container rounded-lg p-6 text-white shadow-lg relative overflow-hidden">
+<div class="relative z-10 space-y-2">
+<h4 class="text-lg font-bold">Thêm Đặt Phòng Mới?</h4>
+<p class="text-white/80 text-sm">Tạo yêu cầu đặt phòng thủ công cho khách vãng lai hoặc qua điện thoại.</p>
+<button class="mt-4 bg-white text-primary font-bold px-6 py-2 rounded-full text-sm">Tạo ngay</button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-white/10 text-[120px]" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-28 right-6 w-16 h-16 bg-gradient-to-br from-[#AB3500] to-[#FF6B35] text-white rounded-full flex items-center justify-center shadow-xl z-50 transform hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl z-50 rounded-t-[2.5rem] shadow-[0_-8px_32px_rgba(171,53,0,0.08)]">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-[#AB3500] to-[#FF6B35] text-white rounded-full p-3 shadow-lg scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[11px] font-semibold font-plus-jakarta-sans mt-0.5">Dashboard</span>
+</a>
+<!-- Bookings -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 p-3 hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[11px] font-semibold font-plus-jakarta-sans mt-0.5">Bookings</span>
+</a>
+<!-- Inventory -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 p-3 hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[11px] font-semibold font-plus-jakarta-sans mt-0.5">Inventory</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 p-3 hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[11px] font-semibold font-plus-jakarta-sans mt-0.5">Settings</span>
+</a>
+</nav>
+</body></html>

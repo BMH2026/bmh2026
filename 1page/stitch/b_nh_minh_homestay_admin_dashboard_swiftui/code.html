@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ETHEREAL - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#98471b",
+                        "on-primary-fixed": "#390c00",
+                        "inverse-on-surface": "#f6f0ea",
+                        "surface-tint": "#ab3500",
+                        "on-surface": "#1e1b18",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#e1804f",
+                        "surface-container-high": "#eee7e1",
+                        "secondary": "#835400",
+                        "background": "#fff8f2",
+                        "surface-variant": "#e8e1dc",
+                        "on-surface-variant": "#594139",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ffb13d",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container-highest": "#e8e1dc",
+                        "on-tertiary-fixed-variant": "#793003",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#ffb956",
+                        "inverse-surface": "#33302c",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dfd9d3",
+                        "surface": "#fff8f2",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "surface-container": "#f3ede7",
+                        "surface-bright": "#fff8f2",
+                        "secondary-fixed": "#ffddb5",
+                        "on-background": "#1e1b18",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#ff6b35",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#6e4600",
+                        "on-secondary-fixed": "#2a1800",
+                        "outline-variant": "#e1bfb5",
+                        "outline": "#8d7168",
+                        "on-primary-container": "#5f1900",
+                        "primary": "#ab3500",
+                        "on-tertiary-fixed": "#351000",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb59d",
+                        "on-tertiary-container": "#582000",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "surface-container-low": "#f9f2ec",
+                        "primary-fixed-dim": "#ffb59d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fff8f2; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .swiftui-shadow { shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.04); }
+    </style>
+</head>
+<body class="text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<aside class="flex flex-col py-10 h-screen w-72 fixed left-0 top-0 bg-[#F9F2EC] dark:bg-stone-900 overflow-y-auto">
+<div class="px-10 mb-12">
+<h1 class="text-xl font-bold text-[#AB3500] tracking-tight">Island Admin</h1>
+<p class="text-[10px] font-semibold uppercase tracking-widest text-secondary opacity-60">Sunrise Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center bg-white dark:bg-stone-800 text-[#AB3500] font-bold rounded-l-full ml-4 py-3 pl-6 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center text-[#835400] opacity-80 py-3 pl-10 hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="calendar_month">calendar_month</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Bookings</span>
+</a>
+<a class="flex items-center text-[#835400] opacity-80 py-3 pl-10 hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="bed">bed</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center text-[#835400] opacity-80 py-3 pl-10 hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="payments">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Revenue</span>
+</a>
+<a class="flex items-center text-[#835400] opacity-80 py-3 pl-10 hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-gradient-to-br from-[#AB3500] to-[#FF6B35] text-white rounded-xl py-4 flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+<span class="font-bold text-sm tracking-tight">Add New Villa</span>
+</button>
+</div>
+</aside>
+<main class="ml-72 min-h-screen p-12">
+<header class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-4xl font-black tracking-tighter text-[#AB3500]">Good morning, Chú Hoàng</h2>
+<p class="text-tertiary font-medium mt-1">Bình Minh Homestay is at 84% capacity today.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-low p-2 rounded-full flex gap-1">
+<button class="material-symbols-outlined p-2 bg-white rounded-full shadow-sm text-primary" data-icon="search">search</button>
+<button class="material-symbols-outlined p-2 text-outline" data-icon="notifications">notifications</button>
+</div>
+<img alt="User profile" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-md" data-alt="Close-up portrait of a friendly mature Vietnamese man with a gentle smile and grey-streaked hair in natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdOcVjuXL-YoKxG2D-ft3I2Xy7hrVTGgd-EAY_hgJ6uBV0HpwYAkfbwpaUOtMYjslRH9jOK4dujMfuYSCGFmSE4DA34CQIRtvz9pX03oKic2iyOhl3A6a6IwtHJ7ml9R5FN7fpgrgXZR4ZX0UGvGPMxP2Ygs89xC2IIX2NfFO_yGDj6K0tzIGc1nnApQZTgbPCyjfo7q0YOZICC7g3NWm-JN2QR0X6YWmCGTCVDsLmLfv8AqMp6Od0SKkQCF1wTjUF8-Oy4t1JdWM"/>
+</div>
+</header>
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-lg swiftui-shadow flex flex-col justify-between border-b-4 border-primary/10">
+<div class="flex justify-between items-start">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">Total Revenue</span>
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-on-surface tracking-tighter">42.5M <span class="text-sm font-medium text-tertiary">VND</span></div>
+<div class="text-xs text-green-600 font-bold mt-1">+12% from last month</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg swiftui-shadow flex flex-col justify-between border-b-4 border-primary/10">
+<div class="flex justify-between items-start">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">Active Bookings</span>
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-on-surface tracking-tighter">18</div>
+<div class="text-xs text-secondary font-medium mt-1">4 checking in today</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg swiftui-shadow flex flex-col justify-between border-b-4 border-primary/10">
+<div class="flex justify-between items-start">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">Occupancy</span>
+<span class="material-symbols-outlined text-primary" data-icon="bed">bed</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-on-surface tracking-tighter">84%</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-primary-container h-full w-[84%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg swiftui-shadow flex flex-col justify-between border-b-4 border-primary/10">
+<div class="flex justify-between items-start">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest">New Inquiries</span>
+<span class="material-symbols-outlined text-primary" data-icon="chat_bubble">chat_bubble</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-on-surface tracking-tighter">7</div>
+<div class="text-xs text-primary-container font-bold mt-1">Requires attention</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-8">
+<section class="col-span-12 lg:col-span-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-2xl font-black tracking-tight text-on-surface">Recent Bookings</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                        View All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden swiftui-shadow">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">Guest Name</th>
+<th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">Dates</th>
+<th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">Room Type</th>
+<th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70">Status</th>
+<th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-70 text-right">Total</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">NL</div>
+<span class="font-bold text-on-surface">Nguyễn Linh</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm font-medium text-on-surface-variant">Oct 12 - Oct 15</td>
+<td class="px-8 py-5 text-sm text-tertiary">Ocean View Suite</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700">Paid</span>
+</td>
+<td class="px-8 py-5 text-sm font-bold text-on-surface text-right">4.2M VND</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">JM</div>
+<span class="font-bold text-on-surface">John Mayer</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm font-medium text-on-surface-variant">Oct 14 - Oct 18</td>
+<td class="px-8 py-5 text-sm text-tertiary">Garden Bungalow</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700">Pending</span>
+</td>
+<td class="px-8 py-5 text-sm font-bold text-on-surface text-right">3.8M VND</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">TA</div>
+<span class="font-bold text-on-surface">Trần Anh</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm font-medium text-on-surface-variant">Oct 15 - Oct 16</td>
+<td class="px-8 py-5 text-sm text-tertiary">Deluxe Studio</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700">Paid</span>
+</td>
+<td class="px-8 py-5 text-sm font-bold text-on-surface text-right">1.5M VND</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">PV</div>
+<span class="font-bold text-on-surface">Phạm Vũ</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm font-medium text-on-surface-variant">Oct 18 - Oct 22</td>
+<td class="px-8 py-5 text-sm text-tertiary">Ocean View Suite</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700">Reserved</span>
+</td>
+<td class="px-8 py-5 text-sm font-bold text-on-surface text-right">5.6M VND</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="col-span-12 lg:col-span-4">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-2xl font-black tracking-tight text-on-surface">Inventory</h3>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg swiftui-shadow">
+<div class="space-y-8">
+<div class="group">
+<div class="flex justify-between items-end mb-2">
+<div>
+<h4 class="font-bold text-on-surface leading-tight">Ocean View Suite</h4>
+<p class="text-xs text-secondary font-medium">Top Floor Premium</p>
+</div>
+<span class="text-sm font-black text-primary">2/4 Available</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/2 rounded-full"></div>
+</div>
+</div>
+<div class="group">
+<div class="flex justify-between items-end mb-2">
+<div>
+<h4 class="font-bold text-on-surface leading-tight">Garden Bungalow</h4>
+<p class="text-xs text-secondary font-medium">Private Entrance</p>
+</div>
+<span class="text-sm font-black text-primary">0/6 Available</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full w-full rounded-full"></div>
+</div>
+</div>
+<div class="group">
+<div class="flex justify-between items-end mb-2">
+<div>
+<h4 class="font-bold text-on-surface leading-tight">Deluxe Studio</h4>
+<p class="text-xs text-secondary font-medium">City-Side Window</p>
+</div>
+<span class="text-sm font-black text-primary">5/8 Available</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[62%] rounded-full"></div>
+</div>
+</div>
+<div class="group">
+<div class="flex justify-between items-end mb-2">
+<div>
+<h4 class="font-bold text-on-surface leading-tight">Family Villa</h4>
+<p class="text-xs text-secondary font-medium">2-Bedroom Heritage</p>
+</div>
+<span class="text-sm font-black text-primary">1/2 Available</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/2 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-10 p-4 rounded-xl bg-surface-container-low border border-primary/5">
+<div class="flex gap-4 items-center">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="tips_and_updates">tips_and_updates</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Maintenance Alert</p>
+<p class="text-[11px] text-tertiary">Bungalow #4 needs AC filter change by tomorrow.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<div class="fixed bottom-12 right-12 flex flex-col gap-4">
+<button class="w-16 h-16 rounded-full bg-surface-container-lowest swiftui-shadow glass-effect flex items-center justify-center text-primary border border-white/50 hover:scale-110 active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</body></html>

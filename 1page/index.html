@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Bình Minh Homestay — Đặt Phòng Vân Đồn</title>
 <meta name="description" content="Đặt phòng Bình Minh Homestay Minh Châu, Vân Đồn. Chọn phòng, ăn uống, trải nghiệm — tính tiền trực tiếp. Hỗ trợ bởi Long Xì AI 24/7."/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -32,13 +32,15 @@
           "on-primary-container":"#5f1900","surface-container-highest":"#e8e1dc","surface":"#fff8f2"
         },
         borderRadius: { "DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px" },
-        fontFamily: { headline:["Plus Jakarta Sans"],body:["Plus Jakarta Sans"],label:["Plus Jakarta Sans"] }
+        fontFamily: { headline:["Playfair Display", "serif"],body:["Playfair Display", "serif"],label:["Playfair Display", "serif"] }
       }
     }
   }
 </script>
 <style>
-  body { font-family:'Plus Jakarta Sans',sans-serif; }
+  :root { --font-heading: 'Playfair Display', serif; }
+  body { font-family: var(--font-heading); }
+  .pill, .tag, .chip { font-family: var(--font-heading); font-weight: 600; }
   .glass-nav { background:rgba(255,248,242,.85); backdrop-filter:blur(20px); }
   .receipt-tear {
     background-image:radial-gradient(circle at 10px -5px,transparent 12px,white 13px);

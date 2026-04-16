@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e8e1dc",
+                        "on-error": "#ffffff",
+                        "outline": "#8d7168",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f3ede7",
+                        "secondary-fixed": "#ffddb5",
+                        "on-primary-container": "#5f1900",
+                        "tertiary": "#98471b",
+                        "on-primary-fixed": "#390c00",
+                        "on-tertiary-container": "#582000",
+                        "surface-container-high": "#eee7e1",
+                        "background": "#fff8f2",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-surface-variant": "#594139",
+                        "on-primary-fixed-variant": "#832600",
+                        "surface-bright": "#fff8f2",
+                        "on-background": "#1e1b18",
+                        "surface-tint": "#ab3500",
+                        "on-secondary-fixed": "#2a1800",
+                        "surface-container-low": "#f9f2ec",
+                        "inverse-on-surface": "#f6f0ea",
+                        "tertiary-container": "#e1804f",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "outline-variant": "#e1bfb5",
+                        "surface-dim": "#dfd9d3",
+                        "primary-container": "#ff6b35",
+                        "primary": "#ab3500",
+                        "secondary-container": "#ffb13d",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1e1b18",
+                        "on-error-container": "#93000a",
+                        "surface": "#fff8f2",
+                        "on-secondary-container": "#6e4600",
+                        "inverse-primary": "#ffb59d",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container-highest": "#e8e1dc",
+                        "on-tertiary-fixed-variant": "#793003",
+                        "secondary-fixed-dim": "#ffb956",
+                        "secondary": "#835400",
+                        "inverse-surface": "#33302c",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .paper-grain {
+            position: relative;
+        }
+        .paper-grain::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.02;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- Background Content (Dimmed) -->
+<main class="fixed inset-0 overflow-hidden blur-[4px] grayscale-[0.2] opacity-60">
+<!-- Mock Page Content -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#FFF8F2]/80 backdrop-blur-md">
+<span class="text-2xl font-bold text-[#AB3500] font-headline tracking-tighter">Bình Minh</span>
+<div class="flex gap-8">
+<span class="text-[#AB3500] font-bold border-b-2 border-[#AB3500]">Stay</span>
+<span class="text-[#835400]">Explore</span>
+<span class="text-[#835400]">Invoice</span>
+</div>
+</nav>
+<section class="pt-24 px-12 grid grid-cols-12 gap-8">
+<div class="col-span-8 space-y-6">
+<div class="h-64 bg-surface-container rounded-lg"></div>
+<div class="h-96 bg-surface-container rounded-lg"></div>
+</div>
+<div class="col-span-4 bg-surface-container-low p-8 rounded-lg"></div>
+</section>
+</main>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 z-[100] bg-on-surface/30 backdrop-blur-sm flex items-end md:items-center justify-center p-0 md:p-6">
+<!-- Modal Container (Wide Desktop Style) -->
+<div class="relative w-full max-w-5xl max-h-[921px] bg-surface-bright rounded-t-xl md:rounded-xl shadow-[0_12px_32px_rgba(171,53,0,0.1)] overflow-hidden flex flex-col md:flex-row paper-grain border-none">
+<!-- Close Button (Mobile/Top-Right) -->
+<button class="absolute top-4 right-4 z-[110] w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<!-- Hero Section (Asymmetric Image) -->
+<div class="w-full md:w-[55%] h-64 md:h-auto relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="luxury tropical room interior with warm wood panels and a large window overlooking a serene sea at sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuHlydPdVprmEpa70kco7fBQuWOHx7A28I4awjyuefOzes8vkeXA_63v2D4TMgRdUuiA-XeFwpDUw-ePMLdnGUQXULuTX-h2-ubj7nrwSsR4zemWWdHCgFtxe80oY23Wk0Ci7E5xnjzbUxdeFYyShifCIcD77gJAdTEAx7ZQbKzM51cSEb6f_K-i-M_XXSPPqMgmFjN-kRzJOyD2MZlEta0QEKGFFCKnzjCbXnh0bDP6Jm6pJl4CShtAG3a1JIhjC7Zad4iHakxAo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent md:hidden"></div>
+</div>
+<!-- Content Section -->
+<div class="w-full md:w-[45%] p-8 md:p-12 overflow-y-auto bg-surface flex flex-col">
+<div class="flex-grow">
+<!-- Category Label -->
+<span class="text-secondary font-semibold tracking-wider text-xs uppercase mb-2 block font-label">Bình Minh Premium</span>
+<!-- Title -->
+<h1 class="text-4xl font-extrabold text-on-background font-headline tracking-tighter mb-6 leading-tight">
+                        Phi Thuyền 2 Giường
+                    </h1>
+<!-- Capacity -->
+<div class="flex items-start gap-3 mb-8 p-4 bg-surface-container-low rounded-DEFAULT border-none">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant">Sức chứa</p>
+<p class="text-sm text-tertiary">Chuẩn 2 người · Tối đa 4 người</p>
+<p class="text-xs text-on-surface-variant/70 italic mt-1">(+25%/người thêm/đêm)</p>
+</div>
+</div>
+<!-- Amenities Bento Row -->
+<div class="mb-8">
+<h3 class="text-tertiary font-bold text-sm mb-4 uppercase tracking-widest font-label">Tiện ích phòng</h3>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-on-surface-variant shadow-sm transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-xs" data-icon="wifi">wifi</span>
+<span>Wifi</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-on-surface-variant shadow-sm transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-xs" data-icon="liquor">liquor</span>
+<span>Minibar</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-on-surface-variant shadow-sm transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-xs" data-icon="ac_unit">ac_unit</span>
+<span>Điều hòa</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-on-surface-variant shadow-sm transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-xs" data-icon="air_freshener">air_freshener</span>
+<span>Máy sấy</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-on-surface-variant shadow-sm transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-xs" data-icon="pool">pool</span>
+<span>Bể bơi chung</span>
+</div>
+</div>
+</div>
+<!-- Pricing Info -->
+<div class="space-y-3 mb-10 border-b border-dashed border-outline-variant pb-6">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Ngày thường</span>
+<span class="text-xl font-bold text-primary">1.300.000đ <span class="text-xs font-normal text-secondary">/ đêm</span></span>
+</div>
+<div class="flex justify-between items-center opacity-80">
+<span class="text-on-surface-variant font-medium">Cuối tuần</span>
+<span class="text-lg font-semibold text-secondary">1.500.000đ <span class="text-xs font-normal">/ đêm</span></span>
+</div>
+</div>
+</div>
+<!-- Footer Action Area -->
+<div class="mt-auto space-y-6">
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-on-surface-variant font-label">SỐ PHÒNG</span>
+<div class="flex items-center bg-surface-container-high rounded-full p-1 border-none shadow-inner">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-12 text-center font-bold text-lg">1</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-5 rounded-xl font-bold text-lg shadow-[0_8px_20px_rgba(171,53,0,0.2)] hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                        Thêm vào hoá đơn
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar (Hidden on detail modal but kept for structure) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-screen w-64 flex-col bg-[#FFF8F2] shadow-[0_12px_32px_rgba(171,53,0,0.05)] z-40">
+<div class="p-8">
+<span class="text-xl font-black text-[#AB3500] font-headline tracking-tighter">Bình Minh</span>
+<p class="text-xs text-secondary tracking-widest mt-1">TROPICAL SUNRISE</p>
+</div>
+<nav class="flex-grow mt-8 space-y-2">
+<div class="bg-[#FF6B35] text-white rounded-full mx-4 flex items-center gap-4 px-6 py-3">
+<span class="material-symbols-outlined" data-icon="bed">bed</span>
+<span class="font-bold">Stay</span>
+</div>
+<div class="text-[#835400] px-10 py-3 flex items-center gap-4 hover:bg-[#F9F2EC] transition-colors rounded-full mx-4">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Explore</span>
+</div>
+<div class="text-[#835400] px-10 py-3 flex items-center gap-4 hover:bg-[#F9F2EC] transition-colors rounded-full mx-4">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Invoice</span>
+</div>
+<div class="text-[#835400] px-10 py-3 flex items-center gap-4 hover:bg-[#F9F2EC] transition-colors rounded-full mx-4">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span>Assistant</span>
+</div>
+</nav>
+<div class="p-6">
+<button class="w-full py-4 bg-primary text-white rounded-xl font-bold shadow-lg">Book Now</button>
+</div>
+</aside>
+<!-- Bottom Nav for Mobile Context -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#FFF8F2]/80 backdrop-blur-xl rounded-t-3xl shadow-[0_-4px_24px_rgba(171,53,0,0.08)]">
+<div class="flex flex-col items-center justify-center bg-[#FF6B35] text-white rounded-2xl p-2 mb-1">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[11px] font-semibold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#835400] p-2">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+<span class="text-[11px] font-semibold">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#835400] p-2">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[11px] font-semibold">AI Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#835400] p-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-semibold">Profile</span>
+</div>
+</nav>
+</body></html>
