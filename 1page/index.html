@@ -64,6 +64,76 @@
   /* Chat panel slide-up mobile */
   #chat-panel { transition:opacity .2s,transform .3s cubic-bezier(.4,0,.2,1); }
   #chat-panel.hidden { opacity:0; transform:translateY(32px); pointer-events:none; }
+  /* WEATHER WIDGET V2 */
+  .weather-skeleton {
+    background: #e5e7eb;
+    height: 140px;
+    border-radius: 24px;
+    display: block;
+  }
+  .weather-card {
+    border-radius: 24px;
+    padding: 24px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.4s ease;
+  }
+  .weather-sunny { background: linear-gradient(135deg, #FF8C42, #FFD166); }
+  .weather-cloudy { background: linear-gradient(135deg, #6B7280, #9CA3AF); }
+  .weather-rainy { background: linear-gradient(135deg, #4B6CB7, #182848); }
+  .weather-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .weather-headline {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .weather-main {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .weather-main span:last-child {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 8px;
+  }
+  .weather-meta {
+    font-size: 14px;
+    opacity: 0.85;
+    display: flex;
+    gap: 12px;
+  }
+  .weather-cta {
+    margin-top: 10px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    max-width: max-content;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .weather-cta:hover { background: rgba(255,255,255,0.25); }
+  .weather-icon {
+    font-size: 48px;
+    opacity: 0.9;
+  }
+  @media(min-width: 768px) {
+    .weather-skeleton { height: 180px; }
+    .weather-card { padding: 32px 40px; }
+    .weather-headline { font-size: 22px; }
+    .weather-main { font-size: 36px; }
+    .weather-icon { font-size: 72px; }
+  }
 </style>
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -98,34 +168,38 @@
 <main class="max-w-[1200px] mx-auto pt-24 md:pt-28 pb-8 px-4 md:px-6">
 
   <!-- Weather Widget -->
-  <section class="mb-8 md:mb-12 relative">
-    <div id="weather-widget-container" class="relative overflow-hidden rounded-xl h-44 md:h-52 flex flex-col md:flex-row justify-center md:items-center md:justify-between p-6 md:px-10 text-white transition-all duration-700 bg-gradient-to-br from-[#FF6B35] via-[#F4A833] to-[#FFEAA0]">
-      <!-- Skeleton UI -->
-      <div id="weather-skeleton" class="absolute inset-0 bg-surface-variant animate-pulse z-20 flex flex-col justify-center px-6 md:px-10">
-         <div class="w-32 h-4 bg-outline-variant/30 rounded mb-4"></div>
-         <div class="w-48 h-10 bg-outline-variant/30 rounded mb-4"></div>
-         <div class="w-40 h-4 bg-outline-variant/30 rounded mb-2"></div>
-         <div class="flex gap-4"><div class="w-20 h-4 bg-outline-variant/30 rounded"></div><div class="w-20 h-4 bg-outline-variant/30 rounded"></div></div>
-      </div>
-      
-      <!-- Actual Content -->
-      <div id="weather-content" class="relative z-10 w-full opacity-0 transition-opacity duration-500 flex justify-between items-center">
-        <div>
-          <h2 id="weather-greeting" class="text-xs md:text-sm font-medium opacity-90 mb-1">Chào ngày mới tại Bình Minh</h2>
-          <p id="weather-main" class="text-3xl md:text-4xl font-extrabold tracking-tight">--°C — Đang tải</p>
-          <p id="weather-microcopy" class="text-xs md:text-sm mt-1 opacity-95">-- • Minh Châu, Vân Đồn</p>
-          <div class="flex gap-4 mt-2 text-xs opacity-80">
-             <span class="flex items-center gap-1"><i data-lucide="droplets" class="text-sm"></i><span id="weather-hum">--%</span></span>
-             <span class="flex items-center gap-1"><i data-lucide="wind" class="text-sm"></i><span id="weather-wind">--</span></span>
-          </div>
-          <button onclick="openWeatherForecast()" class="mt-4 px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-full text-[11px] font-bold tracking-tight inline-flex items-center gap-1 transition-colors backdrop-blur-sm border border-white/20 shadow-sm"><i data-lucide="calendar-days" class="w-3 h-3"></i> Dự báo 7 ngày</button>
+  <section class="mb-8 md:mb-12 flex flex-col gap-0 w-full relative">
+    <div id="weather-skeleton" class="weather-skeleton animate-pulse w-full"></div>
+
+    <div id="weather-widget" class="weather-card hidden w-full">
+      <div class="weather-content">
+        <!-- HEADLINE (PRIMARY DECISION) -->
+        <div id="weather-headline" class="weather-headline">
+          Đang tải thông tin thời tiết...
         </div>
-        <div id="weather-icon-container" class="opacity-80 drop-shadow-md text-6xl md:text-7xl flex-shrink-0">
-          <i data-lucide="sun"></i>
+
+        <!-- MAIN INFO -->
+        <div class="weather-main">
+          <span id="weather-temp">--°C</span>
+          <span id="weather-desc">--</span>
         </div>
+
+        <!-- META -->
+        <div class="weather-meta">
+          <span id="weather-hum">💧 --%</span>
+          <span id="weather-wind">🌬 -- km/h</span>
+        </div>
+
+        <!-- CTA -->
+        <button id="weather-cta" class="weather-cta" onclick="openWeatherForecast()">
+          Xem thời tiết chuyến đi &rarr;
+        </button>
       </div>
-      
-      <div class="absolute -right-20 -top-20 w-80 h-80 bg-white/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
+
+      <!-- ICON -->
+      <div id="weather-icon" class="weather-icon">
+        ⛅
+      </div>
     </div>
   </section>
 
@@ -1950,65 +2024,75 @@ function _tryRestoreCheckout(){
 }
 
 /* ═══ WEATHER API (OPEN-METEO) ═══ */
-const WMO = {
-  0: { t: 'Nắng hửng',ic: 'sun', c: 'sunny', m: 'Thời tiết tuyệt đẹp, lý tưởng đi tắm biển!' },
-  1: { t: 'Trời hửng nắng',ic: 'sun-medium', c: 'sunny', m: 'Nhiều ráng mây đẹp, thích hợp chụp ảnh.' },
-  2: { t: 'Nhiều mây',  ic: 'cloud', c: 'cloudy', m: 'Trời dịu mát, dạo quanh làng chài rất hợp.' },
-  3: { t: 'Âm u',   ic: 'cloud-sun', c: 'cloudy', m: 'Trời khá mát mẻ, không sợ say nắng.' },
-  45:{ t: 'Có sương mù', ic: 'cloud-fog', c: 'cloudy', m: 'Sương mù lãng mạn, cẩn thận đường trơn.' },
-  48:{ t: 'Sương mù', ic: 'cloud-fog', c: 'cloudy', m: 'Sương mù lãng mạn, cẩn thận đường trơn.' },
-  51:{ t: 'Mưa phùn nhẹ',ic: 'cloud-drizzle', c: 'rainy', m: 'Mưa râm ran, nhâm nhi ly trà là chuẩn.' },
-  53:{ t: 'Mưa phùn', ic: 'cloud-drizzle', c: 'rainy', m: 'Mưa khá, có thể tham quan thư viện trong homestay.' },
-  55:{ t: 'Mưa phùn dày',ic: 'cloud-drizzle', c: 'rainy', m: 'Mưa khá, có thể tham quan thư viện trong homestay.' },
-  61:{ t: 'Mưa nhỏ',  ic: 'cloud-rain', c: 'rainy', m: 'Mưa mát mẻ, một giấc ngủ nướng là lý tưởng!' },
-  63:{ t: 'Mưa vừa',  ic: 'cloud-rain', c: 'rainy', m: 'Không khí trong lành sau mưa rất thích.' },
-  65:{ t: 'Mưa lớn',  ic: 'cloud-rain', c: 'rainy', m: 'Trời mưa lớn, an toàn ở homestay thưởng thức hải sản.' },
-  80:{ t: 'Mưa rào nhẹ', ic: 'cloud-showers-heavy', c: 'rainy', m: 'Mưa bóng mây, sẽ tạnh nhanh thôi.' },
-  81:{ t: 'Mưa rào',  ic: 'cloud-showers-heavy', c: 'rainy', m: 'Mưa lớn nhanh tạnh, bạn có thể nghỉ ngơi chốc lát.' },
-  82:{ t: 'Mưa lớn tạt mạnh',ic: 'cloud-showers-heavy', c: 'rainy', m: 'Tránh đi ra ngoài do gió mưa lớn.' },
-  95:{ t: 'Dông có sấm sét', ic: 'cloud-lightning', c: 'rainy', m: 'Trời có sấm sét, không an toàn để ra biển.' },
-  96:{ t: 'Dông sấm sét',ic: 'cloud-lightning', c: 'rainy', m: 'Trời có sấm sét, an toàn ở homestay.' },
-  99:{ t: 'Dông sét mạnh',ic: 'cloud-lightning', c: 'rainy', m: 'Quây quần cùng người thân trong ngày giông bão.' }
-};
 
-function getWMO(code) {
-  return WMO[code] || { t: 'Nhiều mây', ic: 'cloud', c: 'cloudy', m: 'Thời tiết thuận tiện nghỉ dưỡng.' };
+function getWeatherDecision(code) {
+  if ([95,96,99].includes(code)) {
+    return {
+      headline: "⚡ Hôm nay không phù hợp đi biển",
+      theme: "weather-rainy",
+      icon: "⚡",
+      desc: "Dông có sấm sét"
+    }
+  }
+
+  if ([61,63,65,80,81,82].includes(code)) {
+    return {
+      headline: "🌧 Có thể có mưa, cân nhắc lịch trình",
+      theme: "weather-rainy",
+      icon: "🌧",
+      desc: "Trời có mưa"
+    }
+  }
+
+  if ([0,1].includes(code)) {
+    return {
+      headline: "🌤 Thời tiết đẹp, phù hợp đi biển",
+      theme: "weather-sunny",
+      icon: "☀️",
+      desc: "Nắng ráo"
+    }
+  }
+
+  return {
+    headline: "⛅ Thời tiết ổn, phù hợp nghỉ dưỡng",
+    theme: "weather-cloudy",
+    icon: "⛅",
+    desc: "Nhiều mây mát mẻ"
+  }
 }
 
 function processWeather(data) {
-  const code = getWMO(data.current.weather_code);
+  const code = data.current.weather_code;
+  const decision = getWeatherDecision(code);
+  
+  const card = document.getElementById("weather-widget");
+  const skel = document.getElementById("weather-skeleton");
+  
+  // reset class
+  card.classList.remove("weather-sunny", "weather-cloudy", "weather-rainy");
+  card.classList.add(decision.theme);
+  
+  // Parse weather details
   const temp = Math.round(data.current.temperature_2m);
   const hum = data.current.relative_humidity_2m;
   const wind = data.current.wind_speed_10m;
   
-  tx('weather-main', `${temp}°C — ${code.t}`);
-  tx('weather-hum', `${hum}%`);
-  tx('weather-wind', `${wind} km/h`);
-  tx('weather-microcopy', code.m);
-  
-  const wiCtr = $('weather-icon-container');
-  if (wiCtr) {
-     wiCtr.innerHTML = `<i data-lucide="${code.ic}"></i>`;
-  }
-  
-  // Theme Background Check
-  const ctr = $('weather-widget-container');
-  if (ctr) {
-     ctr.classList.remove('from-[#FF6B35]','via-[#F4A833]','to-[#FFEAA0]', 'from-[#6E8898]','via-[#9FB1BC]','to-[#D3D0CB]', 'from-[#2B4162]','via-[#385F71]','to-[#87BBA2]');
-     if (code.c === 'sunny') ctr.classList.add('from-[#FF6B35]','via-[#F4A833]','to-[#FFEAA0]');
-     else if (code.c === 'cloudy') ctr.classList.add('from-[#6E8898]','via-[#9FB1BC]','to-[#D3D0CB]');
-     else ctr.classList.add('from-[#2B4162]','via-[#385F71]','to-[#87BBA2]');
-  }
-  
+  // content
+  document.getElementById("weather-headline").innerText = decision.headline;
+  document.getElementById("weather-temp").innerText = `${temp}°C`;
+  document.getElementById("weather-desc").innerText = decision.desc;
+  document.getElementById("weather-hum").innerText = `💧 ${hum}%`;
+  document.getElementById("weather-wind").innerText = `🌬 ${wind} km/h`;
+  document.getElementById("weather-icon").innerText = decision.icon;
+
+  // Fade in
+  if (skel) skel.classList.add('hidden');
+  card.classList.remove('hidden');
+
   // Render Forecast 7 days modal
   renderForecast(data.daily);
   
-  // Fade in
-  $('weather-skeleton')?.remove();
-  $('weather-content')?.classList.remove('opacity-0');
-  if (window.lucide) lucide.createIcons();
-  
-  if (typeof gtag === 'function') gtag('event', 'view_weather', { weather_code: data.current.weather_code });
+  if (typeof gtag === 'function') gtag('event', 'view_weather', { weather_code: code });
 }
 
 function renderForecast(daily) {
@@ -2016,14 +2100,15 @@ function renderForecast(daily) {
    const html = daily.time.map((t, idx) => {
       const parts = t.split('-');
       const dLabel = idx === 0 ? 'Hôm nay' : (idx === 1 ? 'Ngày mai' : `${parts[2]}/${parts[1]}`);
-      const code = getWMO(daily.weather_code[idx]);
+      const codeVal = daily.weather_code[idx];
+      const dec = getWeatherDecision(codeVal);
       const maxT = Math.round(daily.temperature_2m_max[idx]);
       const minT = Math.round(daily.temperature_2m_min[idx]);
       return `
       <div class="flex items-center justify-between py-2 border-b border-outline-variant/20 last:border-0 hover:bg-surface-container-lowest transition-colors px-2 -mx-2 rounded-lg">
           <div class="flex min-w-[25%]"><span class="font-bold text-sm text-on-surface">${dLabel}</span></div>
-          <div class="flex flex-1 items-center gap-2"><i data-lucide="${code.ic}" class="text-secondary w-5 h-5"></i> <span class="text-sm text-secondary">${code.t}</span></div>
-          <div class="flex justify-end gap-3 w-16 text-sm"><span class="font-medium opacity-60">${minT}°</span><span class="font-bold text-on-surface">${maxT}°</span></div>
+          <div class="flex flex-1 items-center gap-2"><span class="text-lg">${dec.icon}</span> <span class="text-sm text-secondary">${dec.desc}</span></div>
+          <div class="flex justify-end gap-3 w-20 text-sm"><span class="font-medium opacity-60">${minT}°</span><span class="font-bold text-on-surface">${maxT}°</span></div>
       </div>
       `;
    }).join('');
