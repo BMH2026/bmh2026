@@ -98,19 +98,34 @@
 <main class="max-w-[1200px] mx-auto pt-24 md:pt-28 pb-8 px-4 md:px-6">
 
   <!-- Weather Widget -->
-  <section class="mb-8 md:mb-12">
-    <div class="relative overflow-hidden rounded-lg h-40 md:h-48 bg-gradient-to-br from-[#FF6B35] via-[#F4A833] to-[#FFEAA0] flex items-center justify-between px-8 md:px-12 text-white">
-      <div class="relative z-10">
-        <h2 class="text-xs md:text-sm font-medium opacity-90 mb-1">Chào buổi sáng tại Bình Minh</h2>
-        <p class="text-3xl md:text-4xl font-extrabold tracking-tight">29°C — Nắng nhẹ</p>
-        <p class="text-xs md:text-sm mt-1 opacity-95">Sóng êm, biển đẹp • Minh Châu, Vân Đồn</p>
-        <div class="flex gap-4 mt-2 text-xs opacity-80">
-          <span class="flex items-center gap-1"><i data-lucide="droplets" class="text-sm"></i>Độ ẩm ~72%</span>
-          <span class="flex items-center gap-1"><i data-lucide="wind" class="text-sm"></i>Gió 12 km/h</span>
+  <section class="mb-8 md:mb-12 relative">
+    <div id="weather-widget-container" class="relative overflow-hidden rounded-xl h-44 md:h-52 flex flex-col md:flex-row justify-center md:items-center md:justify-between p-6 md:px-10 text-white transition-all duration-700 bg-gradient-to-br from-[#FF6B35] via-[#F4A833] to-[#FFEAA0]">
+      <!-- Skeleton UI -->
+      <div id="weather-skeleton" class="absolute inset-0 bg-surface-variant animate-pulse z-20 flex flex-col justify-center px-6 md:px-10">
+         <div class="w-32 h-4 bg-outline-variant/30 rounded mb-4"></div>
+         <div class="w-48 h-10 bg-outline-variant/30 rounded mb-4"></div>
+         <div class="w-40 h-4 bg-outline-variant/30 rounded mb-2"></div>
+         <div class="flex gap-4"><div class="w-20 h-4 bg-outline-variant/30 rounded"></div><div class="w-20 h-4 bg-outline-variant/30 rounded"></div></div>
+      </div>
+      
+      <!-- Actual Content -->
+      <div id="weather-content" class="relative z-10 w-full opacity-0 transition-opacity duration-500 flex justify-between items-center">
+        <div>
+          <h2 id="weather-greeting" class="text-xs md:text-sm font-medium opacity-90 mb-1">Chào ngày mới tại Bình Minh</h2>
+          <p id="weather-main" class="text-3xl md:text-4xl font-extrabold tracking-tight">--°C — Đang tải</p>
+          <p id="weather-microcopy" class="text-xs md:text-sm mt-1 opacity-95">-- • Minh Châu, Vân Đồn</p>
+          <div class="flex gap-4 mt-2 text-xs opacity-80">
+             <span class="flex items-center gap-1"><i data-lucide="droplets" class="text-sm"></i><span id="weather-hum">--%</span></span>
+             <span class="flex items-center gap-1"><i data-lucide="wind" class="text-sm"></i><span id="weather-wind">--</span></span>
+          </div>
+          <button onclick="openWeatherForecast()" class="mt-4 px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-full text-[11px] font-bold tracking-tight inline-flex items-center gap-1 transition-colors backdrop-blur-sm border border-white/20 shadow-sm"><i data-lucide="calendar-days" class="w-3 h-3"></i> Dự báo 7 ngày</button>
+        </div>
+        <div id="weather-icon-container" class="opacity-80 drop-shadow-md text-6xl md:text-7xl flex-shrink-0">
+          <i data-lucide="sun"></i>
         </div>
       </div>
-      <i data-lucide="sun" class="text-6xl md:text-7xl opacity-80"></i>
-      <div class="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+      
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-white/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
     </div>
   </section>
 
@@ -294,28 +309,14 @@
       </section>
 
       <!-- ──── Tiền Ăn ──── -->
-      <section>
-        <h3 class="text-xl md:text-2xl font-bold text-tertiary flex items-center gap-2 mb-6">
-          <i data-lucide="utensils"></i> Tiền Ăn
-        </h3>
-        <div class="flex gap-3 overflow-x-auto pb-3 no-scrollbar">
-          <button onclick="openSvcModal('sang')" data-svc-id="sang"
-                  class="flex-none px-6 py-3 bg-surface-container-low text-secondary rounded-full font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors whitespace-nowrap" id="pill-sang">
-            🌅 Bữa Sáng <span class="text-xs font-medium opacity-60 ml-1">80k</span>
-          </button>
-          <button onclick="openSvcModal('trua')" data-svc-id="trua"
-                  class="flex-none px-6 py-3 bg-surface-container-low text-secondary rounded-full font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors whitespace-nowrap" id="pill-trua">
-            🍚 Bữa Trưa <span class="text-xs font-medium opacity-60 ml-1">150k</span>
-          </button>
-          <button onclick="openSvcModal('toi')" data-svc-id="toi"
-                  class="flex-none px-6 py-3 bg-surface-container-low text-secondary rounded-full font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors whitespace-nowrap" id="pill-toi">
-            🦐 Bữa Tối Hải Sản <span class="text-xs font-medium opacity-60 ml-1">200k</span>
-          </button>
-          <button onclick="openSvcModal('khac')" data-svc-id="khac"
-                  class="flex-none px-6 py-3 bg-surface-container-low text-secondary rounded-full font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors whitespace-nowrap" id="pill-khac">
-            🍹 Minibar <span class="text-xs font-medium opacity-60 ml-1">50k</span>
-          </button>
+      <section id="food-section">
+        <div class="flex justify-between items-center mb-4 md:mb-6">
+          <h3 class="text-xl md:text-2xl font-bold text-tertiary flex items-center gap-2">
+            <i data-lucide="utensils"></i> Tiền Ăn
+          </h3>
+          <button onclick="openMenuModal()" class="text-xs font-bold text-primary flex items-center gap-1 hover:underline"><i data-lucide="file-text" class="w-4 h-4"></i>Xem menu chi tiết</button>
         </div>
+        <div id="food-list" class="space-y-3"></div>
       </section>
 
       <!-- ──── Tiền Chơi ──── -->
@@ -586,6 +587,43 @@
       </button>
     </div>
   </footer>
+</div>
+
+<!-- ══════════════ WEATHER MODAL ══════════════ -->
+<div id="weather-modal" class="hidden fixed inset-0 z-[150] bg-on-surface/30 backdrop-blur-sm flex items-end md:items-center justify-center pt-0 px-0 md:px-4 transition-opacity duration-300" onclick="closeWeatherModalOut(event)">
+  <div class="w-full md:max-w-md bg-surface rounded-t-2xl md:rounded-2xl p-6 shadow-2xl relative max-h-[80vh] overflow-y-auto no-scrollbar">
+    <div class="flex justify-between items-start mb-6">
+      <div>
+         <h3 class="text-xl font-extrabold tracking-tighter text-on-surface">Dự báo 7 ngày</h3>
+         <p class="text-xs text-secondary mt-1">Mũi Minh Châu, Vân Đồn</p>
+      </div>
+      <button onclick="closeWeatherModal()" class="p-2 text-secondary hover:text-primary transition-colors rounded-full hover:bg-surface-container">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div id="weather-forecast-list" class="space-y-4">
+       <!-- render via JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MENU MODAL ══════════════ -->
+<div id="menu-modal" class="hidden fixed inset-0 z-[150] bg-surface/30 backdrop-blur-sm flex items-center md:items-start justify-center pt-0 md:pt-20 px-4 transition-opacity duration-300" onclick="closeMenuModalOut(event)">
+  <div class="w-full max-w-lg bg-surface rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto no-scrollbar">
+    <div class="flex justify-between items-start mb-4">
+      <h3 class="text-xl font-extrabold tracking-tighter text-on-surface">Thực đơn tiêu biểu</h3>
+      <button onclick="closeMenuModal()" class="p-2 text-secondary hover:text-primary transition-colors rounded-full hover:bg-surface-container">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="space-y-4">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiqIienkN-I-yf2iiKSV1IRMugwMOKTXq0n938bD3ndFmOqlCK2pt7W-wrhr8GpaJlfzNpC7RviGnOgNlZjMhWwzktNsHqpfoea01kQ1Jx500diB1RFaq2Zp6qdrivWrvY4Pcj8FIu8IxlF-Iio84Ph4czicSYCisJcdIcivLtJDA_IqcqeUKwr9A_0Fmhev0t6tegv-Ao3dd4ughyJRHs8q3ooPpIo8JHLFXEQ82awJgJL1CJR4Wne0HtJE6yvM5HGTUHjGuxhns" class="w-full h-48 object-cover rounded-xl" alt="Mâm hải sản gợi ý"/>
+      <div class="bg-amber-50 text-amber-800 text-sm p-3 rounded-xl border border-amber-200">
+        <p class="font-bold flex items-center gap-1"><i data-lucide="info" class="w-4 h-4"></i> Lưu ý</p>
+        <p class="mt-1 opacity-90 text-xs">Hải sản tươi theo ngày · món có thể thay đổi tương đương</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════ SERVICE DETAIL MODAL ══════════════ -->
@@ -995,6 +1033,86 @@ let mState={curId:null,qty:1,qtyMeals:1}, chatOpen=false;
 let _bookingCode=null, _timerInterval=null, _lastDep=0, _lastModalDep=0;
 
 /* ═══ HELPERS ═══ */
+/* ═══ FOOD SECTION LOGIC ═══ */
+const MEALS = [
+  { id: "breakfast", e: "🌅", title: "Bữa sáng", price: 80000, preview: "Phở / Bánh mì / Trứng / Trái cây", context: "Ăn nhanh trước khi ra biển" },
+  { id: "lunch", e: "🍚", title: "Bữa trưa", price: 150000, preview: "Cơm nhà: cá / thịt / rau / canh", context: "Ăn xong nghỉ ngơi, đi tiếp buổi chiều" },
+  { id: "dinner", e: "🦐", title: "Bữa tối hải sản", price: 200000, preview: "Tôm / Mực / Cá + Canh + Rau + Trái cây", context: "Ăn cùng nhóm, không cần ra ngoài tìm quán" },
+  { id: "minibar", e: "🍹", title: "Minibar", price: 50000, preview: "Nước / Snack / Bia / Đồ lạnh", context: "Có sẵn trong phòng, không cần đi mua" }
+];
+
+function renderMeals() {
+  const c = $('food-list');
+  if(!c) return;
+  c.innerHTML = MEALS.map(m => {
+    const cp = cart[m.id]?.qty || 0;
+    const cm = cart[m.id]?.qtyMeals || 0;
+    const active = cp > 0 && cm > 0;
+    return `
+<div class="meal-card border ${active ? 'border-primary/50 bg-primary/5 shadow-md' : 'border-outline-variant/30 bg-surface-container-lowest shadow-sm'} rounded-xl p-4 transition-all">
+  <div class="meal-title font-bold text-base text-on-surface mb-1">${m.e} ${m.title} · ${m.price/1000}k</div>
+  <div class="meal-preview text-sm text-secondary font-medium mb-1 truncate">${m.preview}</div>
+  <div class="meal-context text-xs text-outline italic truncate mb-3">${m.context}</div>
+  <div class="flex items-center justify-between gap-1 border-t border-outline-variant/20 pt-3">
+     <div class="flex items-center gap-1 bg-surface-container-high rounded-full px-1 py-1 shadow-inner">
+        <button onclick="updateMealQty('${m.id}', 'p', -1)" class="w-8 h-8 rounded-full flex items-center justify-center text-primary bg-white shadow-sm transition-colors active:scale-95"><i data-lucide="minus" class="w-4 h-4"></i></button>
+        <span class="text-xs font-bold w-12 text-center text-on-surface">${cp} người</span>
+        <button onclick="updateMealQty('${m.id}', 'p', 1)" class="w-8 h-8 rounded-full flex items-center justify-center text-primary bg-white shadow-sm transition-colors active:scale-95"><i data-lucide="plus" class="w-4 h-4"></i></button>
+     </div>
+     <div class="flex items-center gap-1 bg-surface-container-high rounded-full px-1 py-1 shadow-inner">
+        <button onclick="updateMealQty('${m.id}', 'm', -1)" class="w-8 h-8 rounded-full flex items-center justify-center text-primary bg-white shadow-sm transition-colors active:scale-95"><i data-lucide="minus" class="w-4 h-4"></i></button>
+        <span class="text-xs font-bold w-12 text-center text-on-surface">${cm} bữa</span>
+        <button onclick="updateMealQty('${m.id}', 'm', 1)" class="w-8 h-8 rounded-full flex items-center justify-center text-primary bg-white shadow-sm transition-colors active:scale-95"><i data-lucide="plus" class="w-4 h-4"></i></button>
+     </div>
+  </div>
+</div>`;
+  }).join('');
+  if (window.lucide) lucide.createIcons();
+}
+
+function _computeDefaultGuests() {
+  let p = 0;
+  Object.values(cart).forEach(c => { if(c.kind==='room') p += c.qty * 2; });
+  return p > 0 ? p : 2;
+}
+
+function updateMealQty(id, type, delta) {
+  const m = MEALS.find(x => x.id === id);
+  if(!m) return;
+  let cp = cart[id]?.qty || 0;
+  let cm = cart[id]?.qtyMeals || 0;
+  
+  if(cp === 0 && cm === 0 && delta > 0) {
+     cp = _computeDefaultGuests();
+     cm = Math.max(1, nights());
+  }
+
+  if (type === 'p') cp = Math.max(0, cp + delta);
+  if (type === 'm') cm = Math.max(0, cm + delta);
+
+  if (cp === 0 || cm === 0) {
+    delete cart[id];
+  } else {
+    cart[id] = { qty: cp, qtyMeals: cm, total: m.price * cp * cm, kind: 'meal', name: m.title, e: m.e };
+  }
+  
+  if (typeof gtag === 'function') gtag('event', 'select_meal', { meal_id: id, qty_people: cp, qty_meals: cm });
+  
+  renderMeals();
+  refreshReceipt();
+}
+
+function openMenuModal() {
+  if (typeof gtag === 'function') gtag('event', 'view_menu_detail', { meal_id: 'dinner' });
+  $('menu-modal').classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+function closeMenuModal() {
+  $('menu-modal').classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+function closeMenuModalOut(e) { if(e.target === $('menu-modal')) closeMenuModal(); }
+
 const $  = id => document.getElementById(id);
 const tx = (id,v) => { const e=$(id); if(e) e.textContent=v; };
 const tg = (id,show) => $(id)?.classList.toggle('hidden',!show);
@@ -1267,8 +1385,16 @@ function pickDay(y,m,d){
     updateDatesChip();
     $('cal-bd').classList.add('hidden');
     document.body.classList.remove('overflow-hidden');
-    // Recalc rooms in cart
-    Object.entries(cart).forEach(([id,c])=>{if(c.kind==='room')cart[id].total=roomTotal(id)*c.qty;});
+    // Recalc rooms & meals in cart
+    Object.entries(cart).forEach(([id,c])=>{
+      if(c.kind==='room') cart[id].total=roomTotal(id)*c.qty;
+      if(c.kind==='meal') {
+         cart[id].qtyMeals = Math.max(1, nights());
+         const m = MEALS.find(x => x.id === id);
+         if (m) cart[id].total = m.price * cart[id].qty * cart[id].qtyMeals;
+      }
+    });
+    if (typeof renderMeals === 'function') renderMeals();
     refreshReceipt();
   }
   renderCal();
@@ -1823,6 +1949,127 @@ function _tryRestoreCheckout(){
   }
 }
 
+/* ═══ WEATHER API (OPEN-METEO) ═══ */
+const WMO = {
+  0: { t: 'Nắng hửng',ic: 'sun', c: 'sunny', m: 'Thời tiết tuyệt đẹp, lý tưởng đi tắm biển!' },
+  1: { t: 'Trời hửng nắng',ic: 'sun-medium', c: 'sunny', m: 'Nhiều ráng mây đẹp, thích hợp chụp ảnh.' },
+  2: { t: 'Nhiều mây',  ic: 'cloud', c: 'cloudy', m: 'Trời dịu mát, dạo quanh làng chài rất hợp.' },
+  3: { t: 'Âm u',   ic: 'cloud-sun', c: 'cloudy', m: 'Trời khá mát mẻ, không sợ say nắng.' },
+  45:{ t: 'Có sương mù', ic: 'cloud-fog', c: 'cloudy', m: 'Sương mù lãng mạn, cẩn thận đường trơn.' },
+  48:{ t: 'Sương mù', ic: 'cloud-fog', c: 'cloudy', m: 'Sương mù lãng mạn, cẩn thận đường trơn.' },
+  51:{ t: 'Mưa phùn nhẹ',ic: 'cloud-drizzle', c: 'rainy', m: 'Mưa râm ran, nhâm nhi ly trà là chuẩn.' },
+  53:{ t: 'Mưa phùn', ic: 'cloud-drizzle', c: 'rainy', m: 'Mưa khá, có thể tham quan thư viện trong homestay.' },
+  55:{ t: 'Mưa phùn dày',ic: 'cloud-drizzle', c: 'rainy', m: 'Mưa khá, có thể tham quan thư viện trong homestay.' },
+  61:{ t: 'Mưa nhỏ',  ic: 'cloud-rain', c: 'rainy', m: 'Mưa mát mẻ, một giấc ngủ nướng là lý tưởng!' },
+  63:{ t: 'Mưa vừa',  ic: 'cloud-rain', c: 'rainy', m: 'Không khí trong lành sau mưa rất thích.' },
+  65:{ t: 'Mưa lớn',  ic: 'cloud-rain', c: 'rainy', m: 'Trời mưa lớn, an toàn ở homestay thưởng thức hải sản.' },
+  80:{ t: 'Mưa rào nhẹ', ic: 'cloud-showers-heavy', c: 'rainy', m: 'Mưa bóng mây, sẽ tạnh nhanh thôi.' },
+  81:{ t: 'Mưa rào',  ic: 'cloud-showers-heavy', c: 'rainy', m: 'Mưa lớn nhanh tạnh, bạn có thể nghỉ ngơi chốc lát.' },
+  82:{ t: 'Mưa lớn tạt mạnh',ic: 'cloud-showers-heavy', c: 'rainy', m: 'Tránh đi ra ngoài do gió mưa lớn.' },
+  95:{ t: 'Dông có sấm sét', ic: 'cloud-lightning', c: 'rainy', m: 'Trời có sấm sét, không an toàn để ra biển.' },
+  96:{ t: 'Dông sấm sét',ic: 'cloud-lightning', c: 'rainy', m: 'Trời có sấm sét, an toàn ở homestay.' },
+  99:{ t: 'Dông sét mạnh',ic: 'cloud-lightning', c: 'rainy', m: 'Quây quần cùng người thân trong ngày giông bão.' }
+};
+
+function getWMO(code) {
+  return WMO[code] || { t: 'Nhiều mây', ic: 'cloud', c: 'cloudy', m: 'Thời tiết thuận tiện nghỉ dưỡng.' };
+}
+
+function processWeather(data) {
+  const code = getWMO(data.current.weather_code);
+  const temp = Math.round(data.current.temperature_2m);
+  const hum = data.current.relative_humidity_2m;
+  const wind = data.current.wind_speed_10m;
+  
+  tx('weather-main', `${temp}°C — ${code.t}`);
+  tx('weather-hum', `${hum}%`);
+  tx('weather-wind', `${wind} km/h`);
+  tx('weather-microcopy', code.m);
+  
+  const wiCtr = $('weather-icon-container');
+  if (wiCtr) {
+     wiCtr.innerHTML = `<i data-lucide="${code.ic}"></i>`;
+  }
+  
+  // Theme Background Check
+  const ctr = $('weather-widget-container');
+  if (ctr) {
+     ctr.classList.remove('from-[#FF6B35]','via-[#F4A833]','to-[#FFEAA0]', 'from-[#6E8898]','via-[#9FB1BC]','to-[#D3D0CB]', 'from-[#2B4162]','via-[#385F71]','to-[#87BBA2]');
+     if (code.c === 'sunny') ctr.classList.add('from-[#FF6B35]','via-[#F4A833]','to-[#FFEAA0]');
+     else if (code.c === 'cloudy') ctr.classList.add('from-[#6E8898]','via-[#9FB1BC]','to-[#D3D0CB]');
+     else ctr.classList.add('from-[#2B4162]','via-[#385F71]','to-[#87BBA2]');
+  }
+  
+  // Render Forecast 7 days modal
+  renderForecast(data.daily);
+  
+  // Fade in
+  $('weather-skeleton')?.remove();
+  $('weather-content')?.classList.remove('opacity-0');
+  if (window.lucide) lucide.createIcons();
+  
+  if (typeof gtag === 'function') gtag('event', 'view_weather', { weather_code: data.current.weather_code });
+}
+
+function renderForecast(daily) {
+   const dObj = new Date();
+   const html = daily.time.map((t, idx) => {
+      const parts = t.split('-');
+      const dLabel = idx === 0 ? 'Hôm nay' : (idx === 1 ? 'Ngày mai' : `${parts[2]}/${parts[1]}`);
+      const code = getWMO(daily.weather_code[idx]);
+      const maxT = Math.round(daily.temperature_2m_max[idx]);
+      const minT = Math.round(daily.temperature_2m_min[idx]);
+      return `
+      <div class="flex items-center justify-between py-2 border-b border-outline-variant/20 last:border-0 hover:bg-surface-container-lowest transition-colors px-2 -mx-2 rounded-lg">
+          <div class="flex min-w-[25%]"><span class="font-bold text-sm text-on-surface">${dLabel}</span></div>
+          <div class="flex flex-1 items-center gap-2"><i data-lucide="${code.ic}" class="text-secondary w-5 h-5"></i> <span class="text-sm text-secondary">${code.t}</span></div>
+          <div class="flex justify-end gap-3 w-16 text-sm"><span class="font-medium opacity-60">${minT}°</span><span class="font-bold text-on-surface">${maxT}°</span></div>
+      </div>
+      `;
+   }).join('');
+   const c = $('weather-forecast-list');
+   if(c) {
+       c.innerHTML = html;
+   }
+}
+
+async function fetchWeatherMap() {
+  const now = Date.now();
+  const cacheStr = localStorage.getItem('bmh_weather');
+  if (cacheStr) {
+      try {
+          const cache = JSON.parse(cacheStr);
+          if (now - cache.ts < 3600000) { // 1 hr cache
+              processWeather(cache.data);
+              return;
+          }
+      } catch(e) {}
+  }
+  
+  try {
+     const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=20.9336569&longitude=107.5457752&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FBangkok');
+     const data = await res.json();
+     localStorage.setItem('bmh_weather', JSON.stringify({ ts: now, data }));
+     processWeather(data);
+  } catch(e) {
+     console.error('Weather error:', e);
+     // Hard fallback
+     $('weather-skeleton')?.remove();
+     $('weather-content')?.classList.remove('opacity-0');
+  }
+}
+
+function openWeatherForecast() {
+   $('weather-modal').classList.remove('hidden');
+   document.body.classList.add('overflow-hidden');
+   if (typeof gtag === 'function') gtag('event', 'open_weather_forecast');
+}
+function closeWeatherModal() {
+   $('weather-modal').classList.add('hidden');
+   document.body.classList.remove('overflow-hidden');
+}
+function closeWeatherModalOut(e) { if(e.target === $('weather-modal')) closeWeatherModal(); }
+
 /* ═══ INIT ═══ */
 // 4A: Inventory soft-warning on all room cards
 ['pt1g','pt2g','ng1g','ng2g'].forEach(function(rid){
@@ -1833,11 +2080,13 @@ function _tryRestoreCheckout(){
     priceRow.insertAdjacentHTML('beforebegin',
       '<p class="inv-hint text-[10px] text-amber-600 font-semibold mb-2 flex items-center gap-1">'+
       '<i data-lucide="clock" style="font-size:13px"></i>'+
-      'Số lượng có hạn · Đặt sớm để giữ phòng</p>');
+      'Số lượng cực ít · Đặt sớm thì còn</p>');
   }
 });
 refreshReceipt();
 _tryRestoreCheckout();
+renderMeals();
+fetchWeatherMap();
 </script>
   <script>lucide.createIcons();</script>
 </body>
